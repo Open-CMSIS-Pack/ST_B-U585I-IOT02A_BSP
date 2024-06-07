@@ -1,6 +1,6 @@
 layer:
   type: Board
-  description: B-U585I-IOT02A Board setup with USB Device
+  description: B-U585I-IOT02A board setup with USB Device
   for-board: STMicroelectronics::B-U585I-IOT02A
   processor:
     trustzone: off
@@ -14,12 +14,12 @@ layer:
   connections:
     - connect: B-U585I-IOT02A Board
       provides:
-        - CMSIS_USB_Device
         - CMSIS_USART
+        - CMSIS_USB_Device
         - CMSIS_VIO
         - ARDUINO_UNO_UART
         - ARDUINO_UNO_SPI
-        # - ARDUINO_UNO_I2C
+        - ARDUINO_UNO_I2C
         - ARDUINO_UNO_D2
         - ARDUINO_UNO_D3
         - ARDUINO_UNO_D4
@@ -40,34 +40,40 @@ layer:
         - STDERR
         - Heap: 1024
 
+  define:
+    - CMSIS_target_header: \"B_U585I_IOT02A.h\"
+
   packs:
     - pack: Keil::STM32U5xx_DFP@>=3.0.0-0
     - pack: Keil::B-U585I-IOT02A_BSP@>=2.0.0-0
-    - pack: ARM::CMSIS-Driver_STM32@>=1.0.0-0
     - pack: ARM::CMSIS@>=6.0.0-0
     - pack: ARM::CMSIS-Compiler@>=2.0.0-0
-
-  define:
-    - CMSIS_target_header: \"B_U585I_IOT02A.h\"
+    - pack: ARM::CMSIS-Driver_STM32@>=1.0.0-0
 
   components:
     - component: Device:CubeMX
 
-    - component: ARM::CMSIS:CORE
+    - component: CMSIS:CORE
 
-    - component: CMSIS Driver:SPI
     - component: CMSIS Driver:GPIO
+    - component: CMSIS Driver:I2C
+    - component: CMSIS Driver:SPI
     - component: CMSIS Driver:USART
     - component: CMSIS Driver:USB Device
     - component: CMSIS Driver:VIO:Board
 
-    - component: ARM::CMSIS-Compiler:CORE
-    - component: ARM::CMSIS-Compiler:STDERR:Custom
-    - component: ARM::CMSIS-Compiler:STDOUT:Custom
-    - component: ARM::CMSIS-Compiler:STDIN:Custom
+    - component: CMSIS-Compiler:CORE
+    - component: CMSIS-Compiler:STDERR:Custom
+    - component: CMSIS-Compiler:STDOUT:Custom
+    - component: CMSIS-Compiler:STDIN:Custom
 
   groups:
     - group: Board
       files:
         - file: ./B_U585I_IOT02A.h
         - file: ./retarget_stdio.c
+
+  linker:
+    - script:  ./RTE/Device/STM32U585AIIx/ac6_linker_script.sct.src
+      regions: ./RTE/Device/STM32U585AIIx/regions_B-U585I-IOT02A.h
+      for-compiler: AC6

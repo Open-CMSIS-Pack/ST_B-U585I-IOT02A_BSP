@@ -20,40 +20,50 @@
 #ifndef B_U585I_IOT02A_H_
 #define B_U585I_IOT02A_H_
 
-// B-U585I-IOT02A Arduino Connector Pin Defintions
-#define ARDUINO_UNO_D0  GPIO_PORTD(9U)  /* USART3: RX */
-#define ARDUINO_UNO_D1  GPIO_PORTD(8U)  /* USART3: TX */
-#define ARDUINO_UNO_D2  GPIO_PORTD(15U)
-#define ARDUINO_UNO_D3  GPIO_PORTB(2U)
-#define ARDUINO_UNO_D4  GPIO_PORTE(7U)
-#define ARDUINO_UNO_D5  GPIO_PORTE(0U)
-#define ARDUINO_UNO_D6  GPIO_PORTB(6U)
-#define ARDUINO_UNO_D7  GPIO_PORTF(13U)
-#define ARDUINO_UNO_D8  GPIO_PORTC(1U)
-#define ARDUINO_UNO_D9  GPIO_PORTA(8U)
-#define ARDUINO_UNO_D10 GPIO_PORTE(12U)
-#define ARDUINO_UNO_D11 GPIO_PORTE(15U) /* SPI1: MOSI */
-#define ARDUINO_UNO_D12 GPIO_PORTE(14U) /* SPI1: MISO */
-#define ARDUINO_UNO_D13 GPIO_PORTE(13U) /* SPI1: SCK  */
-#define ARDUINO_UNO_D14 GPIO_PORTC(0U)
-#define ARDUINO_UNO_D15 GPIO_PORTC(2U)
-#define ARDUINO_UNO_D16 GPIO_PORTC(4U)
-#define ARDUINO_UNO_D17 GPIO_PORTC(5U)
-#define ARDUINO_UNO_D18 GPIO_PORTA(7U)
-#define ARDUINO_UNO_D19 GPIO_PORTB(0U)
-#define ARDUINO_UNO_D20 GPIO_PORTB(8U)  /* I2C1: SDA  */
-#define ARDUINO_UNO_D21 GPIO_PORTB(9U)  /* I2C1: SCL  */
+#include "GPIO_STM32.h"
+#include "Driver_I2C.h"
+#include "Driver_SPI.h"
+#include "Driver_USART.h"
+#include "Driver_USBD.h"
 
-// CMSIS Driver instances on Arduino connector
-#define ARDUINO_UNO_I2C     1
-#define ARDUINO_UNO_SPI     1
-#define ARDUINO_UNO_UART    3
+// Arduino Connector Digital I/O
+#define ARDUINO_UNO_D2      GPIO_PIN_ID_PORTD(15U)
+#define ARDUINO_UNO_D3      GPIO_PIN_ID_PORTB(2U)
+#define ARDUINO_UNO_D4      GPIO_PIN_ID_PORTE(7U)
+#define ARDUINO_UNO_D5      GPIO_PIN_ID_PORTE(0U)
+#define ARDUINO_UNO_D6      GPIO_PIN_ID_PORTB(6U)
+#define ARDUINO_UNO_D7      GPIO_PIN_ID_PORTF(13U)
+#define ARDUINO_UNO_D8      GPIO_PIN_ID_PORTC(1U)
+#define ARDUINO_UNO_D9      GPIO_PIN_ID_PORTA(8U)
+#define ARDUINO_UNO_D10     GPIO_PIN_ID_PORTE(12U)
+#define ARDUINO_UNO_D14     GPIO_PIN_ID_PORTC(0U)
+#define ARDUINO_UNO_D15     GPIO_PIN_ID_PORTC(2U)
+#define ARDUINO_UNO_D16     GPIO_PIN_ID_PORTC(4U)
+#define ARDUINO_UNO_D17     GPIO_PIN_ID_PORTC(5U)
+#define ARDUINO_UNO_D18     GPIO_PIN_ID_PORTA(7U)
+#define ARDUINO_UNO_D19     GPIO_PIN_ID_PORTB(0U)
+
+// CMSIS Driver instances on Arduino Connector
+#define ARDUINO_UNO_I2C     1           // I2C1
+#define ARDUINO_UNO_SPI     1           // SPI1
+#define ARDUINO_UNO_UART    3           // USART3
 
 // CMSIS Driver instances of Board peripherals
-#define CMSIS_DRIVER_USBD   0     // CMSIS-Driver USB Device instance number
-#define CMSIS_DRIVER_USART  2     // CMSIS-Driver USART instance number
+#define CMSIS_DRIVER_USBD   0           // Driver_USBD0
+#define CMSIS_DRIVER_USART  2           // Driver_USART2
 
-#ifdef CMSIS_shield_header
+// CMSIS Driver instance for STDIO retarget
+#define RETARGET_STDIO_UART 1
+
+// CMSIS Drivers
+extern ARM_DRIVER_I2C       ARM_Driver_I2C_(ARDUINO_UNO_I2C);           // Arduino I2C
+extern ARM_DRIVER_SPI       ARM_Driver_SPI_(ARDUINO_UNO_SPI);           // Arduino SPI
+extern ARM_DRIVER_USART     ARM_Driver_USART_(ARDUINO_UNO_UART);        // Arduino UART
+extern ARM_DRIVER_USART     ARM_Driver_USART_(CMSIS_DRIVER_USART);      // STMod UART
+extern ARM_DRIVER_USART     ARM_Driver_USART_(RETARGET_STDIO_UART);     // ST-Link
+extern ARM_DRIVER_USBD      ARM_Driver_USBD_(CMSIS_DRIVER_USBD);        // USB Device
+
+#ifdef   CMSIS_shield_header
 #include CMSIS_shield_header
 #endif
 

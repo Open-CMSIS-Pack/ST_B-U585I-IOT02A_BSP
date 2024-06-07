@@ -70,6 +70,8 @@ extern int shield_setup (void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define WRLS_FLOW_Pin GPIO_PIN_15
+#define WRLS_FLOW_GPIO_Port GPIOG
 #define WRLS_UART4_RX_Pin GPIO_PIN_11
 #define WRLS_UART4_RX_GPIO_Port GPIOC
 #define USB_UCPD_CC1_Pin GPIO_PIN_15
@@ -96,6 +98,8 @@ extern int shield_setup (void);
 #define PC14_OSC32_IN_GPIO_Port GPIOC
 #define OCTOSPI_R_DQS_Pin GPIO_PIN_3
 #define OCTOSPI_R_DQS_GPIO_Port GPIOE
+#define ARDUINO_D20_I2C_SDA_Pin GPIO_PIN_9
+#define ARDUINO_D20_I2C_SDA_GPIO_Port GPIOB
 #define T_SWO_Pin GPIO_PIN_3
 #define T_SWO_GPIO_Port GPIOB
 #define OCTOSPI_R_IO7_Pin GPIO_PIN_7
@@ -110,6 +114,8 @@ extern int shield_setup (void);
 #define OCTOSPI_F_IO0_GPIO_Port GPIOF
 #define USER_Button_Pin GPIO_PIN_13
 #define USER_Button_GPIO_Port GPIOC
+#define ARDUINO_D21_I2C_SCL_Pin GPIO_PIN_8
+#define ARDUINO_D21_I2C_SCL_GPIO_Port GPIOB
 #define OCTOSPI_F_IO4_Pin GPIO_PIN_9
 #define OCTOSPI_F_IO4_GPIO_Port GPIOH
 #define LED_RED_Pin GPIO_PIN_6
@@ -142,8 +148,8 @@ extern int shield_setup (void);
 #define OCTOSPI_F_CLK_P_GPIO_Port GPIOF
 #define T_VCP_TX_Pin GPIO_PIN_9
 #define T_VCP_TX_GPIO_Port GPIOA
-#define USB_C_N_Pin GPIO_PIN_11
-#define USB_C_N_GPIO_Port GPIOA
+#define USB_C_PA11_Pin GPIO_PIN_11
+#define USB_C_PA11_GPIO_Port GPIOA
 #define MIC_CCK1_Pin GPIO_PIN_10
 #define MIC_CCK1_GPIO_Port GPIOF
 #define OCTOSPI_R_IO3_Pin GPIO_PIN_6
@@ -154,14 +160,24 @@ extern int shield_setup (void);
 #define WRLS_WKUP_B_GPIO_Port GPIOG
 #define Mems_VL53_xshut_Pin GPIO_PIN_1
 #define Mems_VL53_xshut_GPIO_Port GPIOH
+#define ARDUINO_UNO_D14_Pin GPIO_PIN_0
+#define ARDUINO_UNO_D14_GPIO_Port GPIOC
+#define ARDUINO_UNO_D14_EXTI_IRQn EXTI0_IRQn
 #define MIC_CCK0_Pin GPIO_PIN_9
 #define MIC_CCK0_GPIO_Port GPIOE
 #define Mems_VLX_GPIO_Pin GPIO_PIN_5
 #define Mems_VLX_GPIO_GPIO_Port GPIOG
+#define WRLS_NOTIFY_Pin GPIO_PIN_14
+#define WRLS_NOTIFY_GPIO_Port GPIOD
+#define ARDUINO_UNO_D2_Pin GPIO_PIN_15
+#define ARDUINO_UNO_D2_GPIO_Port GPIOD
+#define ARDUINO_UNO_D2_EXTI_IRQn EXTI15_IRQn
 #define OCTOSPI_R_IO6_Pin GPIO_PIN_3
 #define OCTOSPI_R_IO6_GPIO_Port GPIOC
 #define OCTOSPI_F_DQS_Pin GPIO_PIN_12
 #define OCTOSPI_F_DQS_GPIO_Port GPIOF
+#define USB_UCPD_FLT_Pin GPIO_PIN_8
+#define USB_UCPD_FLT_GPIO_Port GPIOE
 #define ARDUINO_D12_SPI1_MISO_Pin GPIO_PIN_14
 #define ARDUINO_D12_SPI1_MISO_GPIO_Port GPIOE
 #define OCTOSPI_R_CLK_P_Pin GPIO_PIN_10
@@ -192,6 +208,8 @@ extern int shield_setup (void);
 #define ARDUINO_D11_SPI1_MOSI_GPIO_Port GPIOE
 #define MIC_SDIN0_Pin GPIO_PIN_1
 #define MIC_SDIN0_GPIO_Port GPIOB
+#define WRLS_WKUP_W_Pin GPIO_PIN_15
+#define WRLS_WKUP_W_GPIO_Port GPIOF
 
 /* USER CODE BEGIN Private defines */
 
