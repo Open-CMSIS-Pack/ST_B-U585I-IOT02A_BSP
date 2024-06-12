@@ -1,0 +1,72 @@
+name: Build - Examples
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - .github/workflows/examples.yml
+      - 'CMSIS/**'
+      - 'Examples/**'
+  push:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  Build:
+    strategy:
+      fail-fast: false
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout ST_B-U585I-IOT02A_BSP
+        uses: actions/checkout@v4
+        with:
+          path: ./st_b-u585i-iot02a_bsp
+
+      - name: Checkout STM32U5xx_DFP
+        uses: actions/checkout@v4
+        with:
+          repository: Open-CMSIS-Pack/STM32U5xx_DFP
+          path: ./stm32u5xx_dfp
+
+      - name: Checkout CMSIS-Driver_STM32
+        uses: actions/checkout@v4
+        with:
+          repository: Open-CMSIS-Pack/CMSIS-Driver_STM32
+          path: ./cmsis-driver_stm32
+
+      - name: Prepare vcpkg env
+        uses: ARM-software/cmsis-actions/vcpkg@main
+        with:
+          config: ./st_b-u585i-iot02a_bsp/Examples/Blinky/vcpkg-configuration.json
+
+      - name: Initialize CMSIS pack root folder
+        run: |
+          cpackget init https://www.keil.com/pack/index.pidx
+          cpackget update-index
+
+      - name: Add local CMSIS packs
+        working-directory:
+        run: |
+          cpackget add ./st_b-u585i-iot02a_bsp/Keil.B-U585I-IOT02A_BSP.pdsc
+          cpackget add ./stm32u5xx_dfp/Keil.STM32U5xx_DFP.pdsc
+          cpackget add ./cmsis-driver_stm32/ARM.CMSIS-Driver_STM32.pdsc
+
+      - name: Activate Arm tool license
+        run: |
+          armlm activate --server https://mdk-preview.keil.arm.com --product KEMDK-COM0
+
+      - uses: ammaraskar/gcc-problem-matcher@master
+
+      - name: Build Blinky
+        working-directory: ./st_b-u585i-iot02a_bsp/Examples/Blinky
+        run: |
+          cbuild ./Blinky.csolution.yml --packs --update-rte
+
+      - name: Deactivate Arm tool license
+        if: always()
+        run: |
+          armlm deactivate --product KEMDK-COM0
