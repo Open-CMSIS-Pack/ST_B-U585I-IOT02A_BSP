@@ -12,7 +12,7 @@ This BSP uses the generator integration of the [CMSIS-Toolbox to Configure STM32
 
 Directory                   | Description
 :---------------------------|:--------------
-[.github/workflows](https://github.com/Open-CMSIS-Pack/ST_B-U585I-IOT02A_BSP/tree/main/.github/workflows)  | [GitHub Actions](#github-actions) for creating the software pack.
+[.github/workflows](https://github.com/Open-CMSIS-Pack/ST_B-U585I-IOT02A_BSP/tree/main/.github/workflows)  | [GitHub Actions](#github-actions).
 [CMSIS/Driver](https://github.com/Open-CMSIS-Pack/ST_B-U585I-IOT02A_BSP/tree/main/CMSIS/Driver)            | Contains a [CMSIS-Driver VIO](https://arm-software.github.io/CMSIS_6/latest/Driver/group__vio__interface__gr.html) that is configured for the board peripherals.
 [Documents](https://github.com/Open-CMSIS-Pack/ST_B-U585I-IOT02A_BSP/tree/main/Documents)                  | Information about the board provided by STMicroelectronics.
 [Examples/Blinky](https://github.com/Open-CMSIS-Pack/ST_B-U585I-IOT02A_BSP/tree/main/Examples/Blinky)      | Blinky example in *csolution project format* using [CMSIS-Driver VIO](https://arm-software.github.io/CMSIS_6/latest/Driver/group__vio__interface__gr.html) and [CMSIS-Compiler](https://arm-software.github.io/CMSIS-Compiler/main/index.html) for printf I/O retargeting.
@@ -48,9 +48,10 @@ https://github.com/Open-CMSIS-Pack/gen-pack) generates the software pack. Run th
 
 ### GitHub Actions
 
-The repository uses GitHub Actions to generate the pack:
+The repository uses GitHub Actions to generate the pack and build examples:
 
-- `.github/workflows/pack.yml` based on [Open-CMSIS-Pack/gen-pack-action](https://github.com/Open-CMSIS-Pack/gen-pack-action) generates pack and documentation using the [Generate software pack](#generate-software-pack) scripts.
+- `.github/workflows/pack.yml` based on [Open-CMSIS-Pack/gen-pack-action](https://github.com/Open-CMSIS-Pack/gen-pack-action) generates pack using the [Generate software pack](#generate-software-pack) scripts.
+- `.github/workflows/examples.yml` builds the examples.
 
 ## License
 
