@@ -59,7 +59,7 @@ layer:
     - component: CMSIS Driver:GPIO
     - component: CMSIS Driver:USART
     - component: CMSIS Driver:USB Device
-    - component: CMSIS Driver:VIO:Board&B-U585I-IOT02A
+    - component: CMSIS Driver:VIO:Board
 
     - component: ARM::CMSIS-Compiler:CORE
     - component: ARM::CMSIS-Compiler:STDERR:Custom

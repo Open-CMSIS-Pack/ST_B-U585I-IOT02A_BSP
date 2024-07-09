@@ -20,7 +20,7 @@ project:
     - component: ARM::CMSIS-Compiler:STDERR:Custom
 
     - component: CMSIS Driver:USART
-    - component: CMSIS Driver:VIO:Board&B-U585I-IOT02A
+    - component: CMSIS Driver:VIO:Board
 
   # List of source groups and files added to a project or a layer.
   groups:

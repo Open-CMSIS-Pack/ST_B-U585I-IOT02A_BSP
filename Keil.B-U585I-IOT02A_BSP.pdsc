@@ -86,8 +86,8 @@
 
   <components>
     <!-- CMSIS VIO Driver component for B-U585I-IOT02A -->
-    <component Cclass="CMSIS Driver" Cgroup="VIO" Csub="Board" Cvariant= "B-U585I-IOT02A" Cversion="2.0.1" Capiversion="1.0.0" condition="B-U585I-IOT02A CubeMX">
-      <description>Virtual I/O implementation for B-U585I-IOT02A</description>
+    <component Cclass="CMSIS Driver" Cgroup="VIO" Csub="Board" Cversion="2.0.1" Capiversion="1.0.0" condition="B-U585I-IOT02A">
+      <description>I/O implementation for B-U585I-IOT02A</description>
       <RTE_Components_h>
         #define RTE_VIO_BOARD
         #define RTE_VIO_B_U585I_IOT02A
