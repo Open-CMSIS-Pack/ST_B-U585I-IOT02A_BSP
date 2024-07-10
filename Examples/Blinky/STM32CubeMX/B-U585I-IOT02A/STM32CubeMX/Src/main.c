@@ -112,6 +112,7 @@ int main(void)
 
   /* USER CODE BEGIN SysInit */
   SystemCoreClockUpdate();
+
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
@@ -133,7 +134,7 @@ int main(void)
 
   vioInit();                            /* Initialize Virtual I/O */
 
-  app_main();                           /* Application */
+  app_main();                           /* Execute Application main */
 
   /* USER CODE END 2 */
 
