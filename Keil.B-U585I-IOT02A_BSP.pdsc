@@ -82,13 +82,6 @@
       <description>STMicroelectronics B-U585I-IOT02A Board</description>
       <require Bvendor="STMicroelectronics" Bname="B-U585I-IOT02A"/>
     </condition>
-
-    <!-- Board + CubeMX Condition -->
-    <condition id="B-U585I-IOT02A CubeMX">
-      <description>B-U585I-IOT02A Board and CubeMX</description>
-      <require condition="B-U585I-IOT02A"/>
-      <require Cclass="Device" Cgroup="CubeMX"/>
-    </condition>
   </conditions>
 
   <components>
@@ -110,7 +103,7 @@
   </csolution>
 
   <boards>
-    <!-- B-U585I-IOT02A Board -->
+    <!-- B-U585I-IOT02A -->
     <board vendor="STMicroelectronics" name="B-U585I-IOT02A" revision="Rev.C"
            salesContact="https://www.st.com/content/st_com/en/contact-us.html"
            orderForm   ="https://www.st.com/en/evaluation-tools/B-U585I-IOT02A.html">
