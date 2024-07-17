@@ -25,12 +25,12 @@ well as a USB Virtual COM port bridge.
 
 - [User manual](https://www.st.com/resource/en/user_manual/um2839-discovery-kit-for-iot-node-with-stm32u5-series-stmicroelectronics.pdf)
 
-## ST-LINK driver installation and firmware upgrade
+## ST-LINK driver installation and firmware upgrade (on Microsoft Windows)
 
 1. Download the latest [ST-LINK driver](https://www.st.com/en/development-tools/stsw-link009.html).
 2. Extract the archive and run `dpinst_amd64.exe`. Follow the displayed instructions.
 3. Download the latest [ST-LINK firmware upgrade](https://www.st.com/en/development-tools/stsw-link007.html).
-4. Extract the archive and run the STLinkUpgrade.exe program.
+4. Extract the archive and run the `ST-LinkUpgrade.exe` program.
 5. Connect the board to your PC using a USB cable and wait until the USB enumeration is completed.
 6. In the **ST-Link Upgrade** program, press the **Device Connect** button.
 7. When the ST-LINK driver is correctly installed, the current ST-LINK version is displayed.
@@ -39,7 +39,7 @@ well as a USB Virtual COM port bridge.
 # Technical reference
 
 - [STM32U585AI microcontroller](https://www.st.com/en/microcontrollers-microprocessors/stm32u585ai.html)
-- [B-L475E-IOT01A board](https://www.st.com/en/evaluation-tools/B-U585I-IOT02A.html)
+- [B-U585I-IOT02A board](https://www.st.com/en/evaluation-tools/B-U585I-IOT02A.html)
 - [User manual](https://www.st.com/resource/en/user_manual/um2839-discovery-kit-for-iot-node-with-stm32u5-series-stmicroelectronics.pdf)
 - [Data brief](https://www.st.com/resource/en/data_brief/b-u585i-iot02a.pdf)
 - [Schematic](https://www.st.com/resource/en/schematic_pack/mb1551-u585i-c02_schematic.pdf)
