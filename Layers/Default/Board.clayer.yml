@@ -1,6 +1,6 @@
 layer:
   type: Board
-  description: B-U585I-IOT02A board setup with USB Device
+  description: Default B-U585I-IOT02A board setup
   for-board: STMicroelectronics::B-U585I-IOT02A
   processor:
     trustzone: off

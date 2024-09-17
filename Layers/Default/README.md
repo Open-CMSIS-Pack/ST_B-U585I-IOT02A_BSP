@@ -12,7 +12,7 @@ Refer to ["Configure STM32 Devices with CubeMX"](https://github.com/Open-CMSIS-P
 **TrustZone** disabled (option bit TZEN=0)
 
 | System resource       | Setting
-|:----------------------|:--------------------------------------
+|:----------------------|:----------------------------------------------
 | Heap                  | 1 kB (configured in the STM32CubeMX)
 | Stack (MSP)           | 1 kB (configured in the STM32CubeMX)
 
@@ -23,7 +23,7 @@ Refer to ["Configure STM32 Devices with CubeMX"](https://github.com/Open-CMSIS-P
 ### CMSIS-Driver mapping
 
 | CMSIS-Driver          | Peripheral
-|:----------------------|:--------------------------------------
+|:----------------------|:----------------------------------------------
 | Driver_GPIO0          | GPIO0
 | Driver_I2C1           | I2C1
 | Driver_SPI1           | SPI1
@@ -34,7 +34,7 @@ Refer to ["Configure STM32 Devices with CubeMX"](https://github.com/Open-CMSIS-P
 ### CMSIS-Driver Virtual I/O mapping
 
 | CMSIS-Driver VIO      | Physical resource
-|:----------------------|:--------------------------------------
+|:----------------------|:----------------------------------------------
 | vioBUTTON0            | Button USER (PC13)
 | vioLED0               | LED6 RED    (PH6)
 | vioLED1               | LED7 GREEN  (PH7)
@@ -42,7 +42,7 @@ Refer to ["Configure STM32 Devices with CubeMX"](https://github.com/Open-CMSIS-P
 ## Arduino UNO mapping
 
 | Arduino resource      | Driver
-|:----------------------|:--------------------------------------
+|:----------------------|:----------------------------------------------
 | UART (D0,D1)          | USART3 Driver (ARDUINO_UNO_UART)
 | SPI  (D11,D12,D13)    | SPI1   Driver (ARDUINO_UNO_SPI)
 | I2C  (D20,D21)        | I2C1   Driver (ARDUINO_UNO_I2C)
