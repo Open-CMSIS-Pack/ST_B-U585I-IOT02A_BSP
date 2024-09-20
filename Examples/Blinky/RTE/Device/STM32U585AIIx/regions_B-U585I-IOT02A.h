@@ -6,8 +6,8 @@
 //------ With VS Code: Open Preview for Configuration Wizard -------------------
 
 // <n> Auto-generated using information from packs
-// <i> Device Family Pack (DFP):   Keil::STM32U5xx_DFP@3.0.0-dev
-// <i> Board Support Pack (BSP):   Keil::B-U585I-IOT02A_BSP@2.0.0-dev
+// <i> Device Family Pack (DFP):   Keil::STM32U5xx_DFP@3.0.0
+// <i> Board Support Pack (BSP):   Keil::B-U585I-IOT02A_BSP@2.0.0
 
 // <h> ROM Configuration
 // =======================
@@ -91,11 +91,7 @@
 
 // </h>
 
-// <h> Stack / Heap Configuration
-//   <o0> Stack Size (in Bytes) <0x0-0xFFFFFFFF:8>
-//   <o1> Heap Size (in Bytes) <0x0-0xFFFFFFFF:8>
-#define __STACK_SIZE 0x00000200
-#define __HEAP_SIZE 0x00000C00
+
 // </h>
 
 // <n> Resources that are not allocated to linker regions
