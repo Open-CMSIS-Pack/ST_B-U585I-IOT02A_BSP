@@ -1,4 +1,6 @@
-# Overview
+# B-U585I-IOT02A Discovery kit for IoT node
+
+## Overview
 
 The B-U585I-IOT02A Discovery kit provides a complete demonstration and development platform for the STM32U585AI
 microcontroller, featuring an Arm Cortex-M33 core, 2 Mbytes of Flash memory and 786 Kbytes of SRAM, as well as smart
@@ -12,20 +14,11 @@ The support for ARDUINO® Uno V3, STMod+, and Pmod™ connectivity provides unli
 choice of specialized add-on boards. The on-board STLINK-V3E debugger provides out-of-the-box debugging capabilities, as
 well as a USB Virtual COM port bridge.
 
-# Board pinout
-
-## Pins Legend
-
-![](b_u585i_iot02a_arduino_left.jpg)
-![](b_u585i_iot02a_arduino_right.jpg)
-![](b_u585i_iot02a_stmod1.jpg)
-![](b_u585i_iot02a_stmod2.jpg)
-
-# Getting started
+## Getting started
 
 - [User manual](https://www.st.com/resource/en/user_manual/um2839-discovery-kit-for-iot-node-with-stm32u5-series-stmicroelectronics.pdf)
 
-## ST-LINK driver installation and firmware upgrade (on Microsoft Windows)
+### ST-LINK driver installation and firmware upgrade (on Microsoft Windows)
 
 1. Download the latest [ST-LINK driver](https://www.st.com/en/development-tools/stsw-link009.html).
 2. Extract the archive and run `dpinst_amd64.exe`. Follow the displayed instructions.
@@ -36,7 +29,7 @@ well as a USB Virtual COM port bridge.
 7. When the ST-LINK driver is correctly installed, the current ST-LINK version is displayed.
 8. Press the **Yes >>>>** button to start the firmware upgrade process.
 
-# Technical reference
+## Technical reference
 
 - [STM32U585AI microcontroller](https://www.st.com/en/microcontrollers-microprocessors/stm32u585ai.html)
 - [B-U585I-IOT02A board](https://www.st.com/en/evaluation-tools/B-U585I-IOT02A.html)

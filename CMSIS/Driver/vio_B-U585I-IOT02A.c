@@ -27,11 +27,11 @@
 
 The table below lists the physical I/O mapping of this CMSIS-Driver VIO implementation.
 
-Virtual Resource  | Variable       | Physical Resource on B-U585I-IOT02A       |
-:-----------------|:---------------|:------------------------------------------|
-vioBUTTON0        | vioSignalIn.0  | PC13: Button USER                         |
-vioLED0           | vioSignalOut.0 | PH6:  LED6 RED                            |
-vioLED1           | vioSignalOut.1 | PH7:  LED7 GREEN                          |
+| Virtual I/O   | Variable       | Board component      | Pin
+|:--------------|:---------------|:---------------------|:------
+| vioBUTTON0    | vioSignalIn.0  | USER button (B3)     | PC13
+| vioLED0       | vioSignalOut.0 | LED red     (LD6)    | PH6
+| vioLED1       | vioSignalOut.1 | LED green   (LD7)    | PH7
 */
 
 #include "cmsis_vio.h"
