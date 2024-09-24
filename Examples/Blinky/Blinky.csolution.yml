@@ -7,8 +7,6 @@ solution:
   select-compiler:
     - compiler: AC6
 
-  # compiler: AC6
-
   # List the packs that define the device and/or board.
   packs:
     - pack: Keil::STM32U5xx_DFP@>=3.0.0-0
