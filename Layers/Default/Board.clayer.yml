@@ -70,6 +70,7 @@ layer:
   groups:
     - group: Board
       files:
+        - file: ./README.md
         - file: ./B_U585I_IOT02A.h
         - file: ./retarget_stdio.c
 
