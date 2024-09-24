@@ -49,16 +49,16 @@
 #define ARDUINO_UNO_UART    3           // USART3
 
 // CMSIS Driver instances of Board peripherals
-#define CMSIS_DRIVER_USBD   0           // Driver_USBD0
 #define CMSIS_DRIVER_USART  2           // Driver_USART2
+#define CMSIS_DRIVER_USBD   0           // Driver_USBD0
 
 // CMSIS Driver instance for STDIO retarget
 #define RETARGET_STDIO_UART 1
 
 // CMSIS Drivers
-extern ARM_DRIVER_I2C       ARM_Driver_I2C_(ARDUINO_UNO_I2C);           // Arduino I2C
-extern ARM_DRIVER_SPI       ARM_Driver_SPI_(ARDUINO_UNO_SPI);           // Arduino SPI
-extern ARM_DRIVER_USART     ARM_Driver_USART_(ARDUINO_UNO_UART);        // Arduino UART
+extern ARM_DRIVER_I2C       ARM_Driver_I2C_(ARDUINO_UNO_I2C);           // I2C
+extern ARM_DRIVER_SPI       ARM_Driver_SPI_(ARDUINO_UNO_SPI);           // SPI
+extern ARM_DRIVER_USART     ARM_Driver_USART_(ARDUINO_UNO_UART);        // UART
 extern ARM_DRIVER_USART     ARM_Driver_USART_(CMSIS_DRIVER_USART);      // STMod UART
 extern ARM_DRIVER_USART     ARM_Driver_USART_(RETARGET_STDIO_UART);     // ST-Link
 extern ARM_DRIVER_USBD      ARM_Driver_USBD_(CMSIS_DRIVER_USBD);        // USB Device
@@ -67,4 +67,4 @@ extern ARM_DRIVER_USBD      ARM_Driver_USBD_(CMSIS_DRIVER_USBD);        // USB D
 #include CMSIS_shield_header
 #endif
 
-#endif /* B_U585I_IOT02A_H_ */
+#endif // B_U585I_IOT02A_H_
