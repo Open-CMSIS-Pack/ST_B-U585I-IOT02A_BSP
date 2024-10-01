@@ -51,8 +51,6 @@ OSPI_HandleTypeDef hospi2;
 
 SPI_HandleTypeDef hspi1;
 SPI_HandleTypeDef hspi2;
-DMA_HandleTypeDef handle_GPDMA1_Channel3;
-DMA_HandleTypeDef handle_GPDMA1_Channel2;
 DMA_HandleTypeDef handle_GPDMA1_Channel5;
 DMA_HandleTypeDef handle_GPDMA1_Channel4;
 
@@ -314,10 +312,6 @@ static void MX_GPDMA1_Init(void)
   __HAL_RCC_GPDMA1_CLK_ENABLE();
 
   /* GPDMA1 interrupt Init */
-    HAL_NVIC_SetPriority(GPDMA1_Channel2_IRQn, 8, 0);
-    HAL_NVIC_EnableIRQ(GPDMA1_Channel2_IRQn);
-    HAL_NVIC_SetPriority(GPDMA1_Channel3_IRQn, 8, 0);
-    HAL_NVIC_EnableIRQ(GPDMA1_Channel3_IRQn);
     HAL_NVIC_SetPriority(GPDMA1_Channel4_IRQn, 8, 0);
     HAL_NVIC_EnableIRQ(GPDMA1_Channel4_IRQn);
     HAL_NVIC_SetPriority(GPDMA1_Channel5_IRQn, 8, 0);
