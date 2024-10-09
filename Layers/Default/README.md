@@ -11,16 +11,14 @@ Refer to ["Configure STM32 Devices with CubeMX"](https://github.com/Open-CMSIS-P
 
 ### System Configuration
 
-**TrustZone** disabled (option bit TZEN=0)
-
 | System resource       | Setting
 |:----------------------|:--------------------------------------
-| Heap                  | 1 kB (configured in the STM32CubeMX)
-| Stack (MSP)           | 1 kB (configured in the STM32CubeMX)
+| Heap                  | 64 kB (configured in the STM32CubeMX)
+| Stack (MSP)           |  1 kB (configured in the STM32CubeMX)
 
 ### STDIO mapping
 
-**STDIO** is routed to Virtual COM port on the ST-Link (using **USART1** peripheral)
+**STDIO** is routed to Virtual COM port on the ST-LINK (using **USART1** peripheral)
 
 ### CMSIS-Driver mapping
 

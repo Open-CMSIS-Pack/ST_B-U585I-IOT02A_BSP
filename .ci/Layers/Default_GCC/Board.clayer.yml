@@ -17,9 +17,9 @@ layer:
         - CMSIS_USART
         - CMSIS_USB_Device
         - CMSIS_VIO
-        - ARDUINO_UNO_UART
-        - ARDUINO_UNO_SPI
         - ARDUINO_UNO_I2C
+        - ARDUINO_UNO_SPI
+        - ARDUINO_UNO_UART
         - ARDUINO_UNO_D2
         - ARDUINO_UNO_D3
         - ARDUINO_UNO_D4
@@ -38,7 +38,7 @@ layer:
         - STDIN
         - STDOUT
         - STDERR
-        - Heap: 1024
+        - Heap: 65536
 
   define:
     - CMSIS_target_header: \"B_U585I_IOT02A.h\"
@@ -46,9 +46,9 @@ layer:
   packs:
     - pack: Keil::STM32U5xx_DFP@>=3.0.0-0
     - pack: Keil::B-U585I-IOT02A_BSP@>=2.0.0-0
-    - pack: ARM::CMSIS@>=6.0.0-0
-    - pack: ARM::CMSIS-Compiler@>=2.0.0-0
     - pack: ARM::CMSIS-Driver_STM32@>=1.0.0-0
+    - pack: ARM::CMSIS@>=6.0.0
+    - pack: ARM::CMSIS-Compiler@>=2.0.0
 
   components:
     - component: Device:CubeMX
