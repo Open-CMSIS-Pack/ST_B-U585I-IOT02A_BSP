@@ -27,11 +27,11 @@
 
 The table below lists the physical I/O mapping of this CMSIS-Driver VIO implementation.
 
-| Virtual I/O   | Variable       | Board component      | Pin
-|:--------------|:---------------|:---------------------|:------
-| vioBUTTON0    | vioSignalIn.0  | USER button (B3)     | PC13
-| vioLED0       | vioSignalOut.0 | LED red     (LD6)    | PH6
-| vioLED1       | vioSignalOut.1 | LED green   (LD7)    | PH7
+| Virtual I/O   | Variable       | Board component    | Pin
+|:--------------|:---------------|:-------------------|:------
+| vioBUTTON0    | vioSignalIn.0  | USER button (B3)   | PC13
+| vioLED0       | vioSignalOut.0 | LED red     (LD6)  | PH6
+| vioLED1       | vioSignalOut.1 | LED green   (LD7)  | PH7
 */
 
 #include "cmsis_vio.h"
@@ -70,8 +70,8 @@ typedef struct {
 // VOUT Configuration
 static const pinCfg_t outputCfg[] = {
 //  signal,     pin,                   pull resistor,      active state
-  { vioLED0, GPIO_PIN_ID_PORTH(6), ARM_GPIO_PULL_NONE, VIO_ACTIVE_LOW },
-  { vioLED1, GPIO_PIN_ID_PORTH(7), ARM_GPIO_PULL_NONE, VIO_ACTIVE_LOW }
+  { vioLED0,    GPIO_PIN_ID_PORTH(6), ARM_GPIO_PULL_NONE, VIO_ACTIVE_LOW },
+  { vioLED1,    GPIO_PIN_ID_PORTH(7), ARM_GPIO_PULL_NONE, VIO_ACTIVE_LOW }
 };
 #endif
 
