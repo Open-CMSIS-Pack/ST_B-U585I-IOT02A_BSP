@@ -91,9 +91,6 @@
 
 // </h>
 
-
-// </h>
-
 // <n> Resources that are not allocated to linker regions
 // <i> rwx RAM:  SRAM3 from DFP:           BASE: 0x20040000  SIZE: 0x00080000
 // <i> rwx RAM:  RAM-External from BSP:    BASE: 0x90000000  SIZE: 0x00800000
