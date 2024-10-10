@@ -41,7 +41,7 @@ layer:
         - Heap: 65536
 
   define:
-    - CMSIS_target_header: \"B_U585I_IOT02A.h\"
+    - CMSIS_target_header: \"B-U585I-IOT02A.h\"
 
   packs:
     - pack: Keil::STM32U5xx_DFP@>=3.0.0-0
@@ -71,7 +71,7 @@ layer:
     - group: Board
       files:
         - file: ./README.md
-        - file: ./B_U585I_IOT02A.h
+        - file: ./B-U585I-IOT02A.h
         - file: ./retarget_stdio.c
 
   linker:
