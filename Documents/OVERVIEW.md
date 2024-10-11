@@ -10,9 +10,9 @@ The **STMicroelectronics B-U585I-IOT02A Board Support Pack (BSP)**:
 
 - [Examples/Blinky](https://github.com/Open-CMSIS-Pack/ST_B-U585I-IOT02A_BSP/tree/main/Examples/Blinky) shows the basic usage of this board.
 
-- [Board Layer](https://github.com/Open-CMSIS-Pack/ST_B-U585I-IOT02A_BSP/tree/main/Layers/Default) for device-agnostic [Reference Applications](https://github.com/Open-CMSIS-Pack/cmsis-toolbox/blob/main/docs/ReferenceApplications.md) that provides the following connections:
+- [Board Layer](https://github.com/Open-CMSIS-Pack/ST_B-U585I-IOT02A_BSP/tree/main/Layers/Default) for device-agnostic [Reference Applications](https://github.com/Open-CMSIS-Pack/cmsis-toolbox/blob/main/docs/ReferenceApplications.md) that implements these API interfaces:
 
-| Provided connection           | Description
+| Provided API Interface        | Description
 |:------------------------------|:------------------------------------------------------------------------------
 | CMSIS_USART                   | CMSIS-Driver USART connected to ST-Mod pins 2S1, 3S1 (CN3)
 | CMSIS_USB_Device              | CMSIS-Driver USB Device connected to User USB connector (CN1)
