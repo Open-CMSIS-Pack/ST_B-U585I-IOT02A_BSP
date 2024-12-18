@@ -1,6 +1,6 @@
 /******************************************************************************
  * File Name   : MX_Device.h
- * Date        : 09/10/2024 09:29:52
+ * Date        : 16/12/2024 09:57:33
  * Description : STM32Cube MX parameter definitions
  * Note        : This file is generated with a generator out of the
  *               STM32CubeMX project and its generated files (DO NOT EDIT!)
@@ -122,7 +122,7 @@
 #define MX_SPI2_MISO_GPIOx                      GPIOD
 #define MX_SPI2_MISO_GPIO_Mode                  GPIO_MODE_AF_PP
 #define MX_SPI2_MISO_GPIO_PuPd                  GPIO_NOPULL
-#define MX_SPI2_MISO_GPIO_Speed                 GPIO_SPEED_FREQ_LOW
+#define MX_SPI2_MISO_GPIO_Speed                 GPIO_SPEED_FREQ_HIGH
 #define MX_SPI2_MISO_GPIO_AF                    GPIO_AF5_SPI2
 
 /* SPI2_MOSI */
@@ -131,7 +131,7 @@
 #define MX_SPI2_MOSI_GPIOx                      GPIOD
 #define MX_SPI2_MOSI_GPIO_Mode                  GPIO_MODE_AF_PP
 #define MX_SPI2_MOSI_GPIO_PuPd                  GPIO_NOPULL
-#define MX_SPI2_MOSI_GPIO_Speed                 GPIO_SPEED_FREQ_LOW
+#define MX_SPI2_MOSI_GPIO_Speed                 GPIO_SPEED_FREQ_HIGH
 #define MX_SPI2_MOSI_GPIO_AF                    GPIO_AF5_SPI2
 
 /* SPI2_SCK */
@@ -140,7 +140,7 @@
 #define MX_SPI2_SCK_GPIOx                       GPIOD
 #define MX_SPI2_SCK_GPIO_Mode                   GPIO_MODE_AF_PP
 #define MX_SPI2_SCK_GPIO_PuPd                   GPIO_NOPULL
-#define MX_SPI2_SCK_GPIO_Speed                  GPIO_SPEED_FREQ_LOW
+#define MX_SPI2_SCK_GPIO_Speed                  GPIO_SPEED_FREQ_HIGH
 #define MX_SPI2_SCK_GPIO_AF                     GPIO_AF5_SPI2
 
 /*------------------------------ UART4          -----------------------------*/

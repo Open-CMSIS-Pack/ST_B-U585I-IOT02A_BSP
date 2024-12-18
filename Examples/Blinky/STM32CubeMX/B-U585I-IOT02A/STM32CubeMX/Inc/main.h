@@ -5,6 +5,8 @@
   * @brief          : Header for main.c file.
   *                   This file contains the common defines of the application.
   ******************************************************************************
+  * @note    modified by Arm
+  *
   * @attention
   *
   * Copyright (c) 2024 STMicroelectronics.
@@ -64,8 +66,10 @@ extern "C" {
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
+
 extern int stdio_init   (void);
 extern int app_main     (void);
+
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/

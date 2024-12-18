@@ -1,6 +1,6 @@
 # Board: STMicroelectronics [B-U585I-IOT02A](https://www.st.com/en/evaluation-tools/b-u585i-iot02a.html)
 
-## Default Board Layer
+## Default Board Layer supporting USB Device
 
 Device: **STM32U585AII6QU**
 
