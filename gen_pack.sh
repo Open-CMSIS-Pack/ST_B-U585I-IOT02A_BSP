@@ -29,7 +29,7 @@ DEFAULT_ARGS=(-c "v")
 # Default: empty (all folders)
 #
 PACK_DIRS="
-  CMSIS
+  Drivers
   Documents
   Examples
   Images
@@ -69,6 +69,7 @@ PACK_BASE_FILES="
 #
 PACKCHK_DEPS="
   ARM.CMSIS.pdsc
+  ARM.CMSIS-RTX.pdsc
 "
 
 # Optional: restrict fallback modes for changelog generation

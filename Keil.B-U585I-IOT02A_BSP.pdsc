@@ -14,9 +14,15 @@
   </licenseSets>
 
   <releases>
-    <release version="2.0.1-dev">
+    <release version="2.1.0-dev">
       Active development ...
-
+      Updated all CubeMX generated files using STM32CubeMX v6.13.0
+      CMSIS Drivers:
+      - Added WiFi driver for on-board MXCHIP EMW3080 WiFi module
+        (Requires EMW3080B MXCHIP WiFi module firmware v2.3.4 rc 13)
+      Layers:
+      - Added layer supporting USB Device, Audio, Environment and Motion Sensors
+      - Added layer supporting USB Host,   Audio, Environment and Motion Sensors
       Reorganized Licenses:
       - LICENSES (combined license file: Apache-2.0 and BSD-3-Clause)
       - LICENSE-Apache-2.0 (for CMSIS add-ons)
@@ -79,30 +85,67 @@
       <require Bvendor="STMicroelectronics" Bname="B-U585I-IOT02A"/>
     </condition>
 
-    <!-- Board Condition + CMSIS Driver GPIO-->
+    <!-- Board Condition + CMSIS Driver GPIO -->
     <condition id="B-U585I-IOT02A GPIO">
       <description>STMicroelectronics B-U585I-IOT02A Board with CMSIS Driver GPIO</description>
       <require condition="B-U585I-IOT02A"/>
       <require Cclass="CMSIS Driver" Cgroup="GPIO"/>
     </condition>
+
+    <!-- Board Condition + CMSIS RTOS2 -->
+    <condition id="B-U585I-IOT02A RTOS2">
+      <description>STMicroelectronics B-U585I-IOT02A Board with CMSIS-RTOS2</description>
+      <require condition="B-U585I-IOT02A"/>
+      <require Cclass="CMSIS"        Cgroup="RTOS2"/>
+    </condition>
   </conditions>
 
   <components>
-    <!-- CMSIS VIO Driver component for B-U585I-IOT02A -->
+    <!-- CMSIS VIO Driver -->
     <component Cclass="CMSIS Driver" Cgroup="VIO" Csub="Board" Cversion="2.0.2" Capiversion="1.0.0" condition="B-U585I-IOT02A GPIO">
-      <description>I/O implementation for B-U585I-IOT02A</description>
+      <description>Virtual I/O Driver for B-U585I-IOT02A board</description>
       <RTE_Components_h>
         #define RTE_VIO_BOARD
         #define RTE_VIO_B_U585I_IOT02A
       </RTE_Components_h>
       <files>
-        <file category="source" name="CMSIS/Driver/vio_B-U585I-IOT02A.c"/>
+        <file category="source" name="Drivers/CMSIS/vio_B-U585I-IOT02A.c"/>
+      </files>
+    </component>
+
+    <!-- CMSIS WiFi Driver for on-board MXCHIP EMW3080 WiFi module -->
+    <component Cclass="CMSIS Driver" Cgroup="WiFi" Csub="EMW3080" Capiversion="1.1.0" Cvariant="SPI" Cversion="1.1.0" condition="B-U585I-IOT02A RTOS2">
+      <description>WiFi MXCHIP EMW3080 Driver (SPI) for B-U585I-IOT02A board</description>
+      <RTE_Components_h>
+        #define RTE_Drivers_WiFi
+        #define RTE_Drivers_WiFi_EMW3080_SPI_B_U585I_IOT02A
+      </RTE_Components_h>
+      <files>
+        <file category="doc"     name="Drivers/CMSIS/Documentation/WiFi_EMW3080_README.md"/>
+        <file category="header"  name="Drivers/CMSIS/Config/WiFi_EMW3080_Config.h" attr="config" version="1.1.0"/>
+        <file category="header"  name="Drivers/CMSIS/WiFi_EMW3080.h"/>
+        <file category="source"  name="Drivers/CMSIS/WiFi_EMW3080.c"/>
+        <file category="header"  name="Drivers/BSP/Components/mx_wifi/Config/mx_wifi_conf.h" attr="config" version="2.0.0"/>
+        <file category="include" name="Drivers/BSP/Components/mx_wifi/"/>
+        <file category="source"  name="Drivers/BSP/Components/mx_wifi/mx_wifi.c"/>
+        <file category="include" name="Drivers/BSP/Components/mx_wifi/core/"/>
+        <file category="source"  name="Drivers/BSP/Components/mx_wifi/core/checksumutils.c"/>
+        <file category="source"  name="Drivers/BSP/Components/mx_wifi/core/mx_address.c"/>
+        <file category="source"  name="Drivers/BSP/Components/mx_wifi/core/mx_rtos_abs.c"/>
+        <file category="source"  name="Drivers/BSP/Components/mx_wifi/core/mx_wifi_hci.c"/>
+        <file category="source"  name="Drivers/BSP/Components/mx_wifi/core/mx_wifi_ipc.c"/>
+        <file category="source"  name="Drivers/BSP/Components/mx_wifi/core/mx_wifi_slip.c"/>
+        <file category="include" name="Drivers/BSP/Components/mx_wifi/io_pattern/"/>
+        <file category="source"  name="Drivers/BSP/Components/mx_wifi/io_pattern/mx_wifi_spi.c"/>
+        <file category="source"  name="Drivers/BSP/Components/mx_wifi/io_pattern/mx_wifi_uart.c"/>
       </files>
     </component>
   </components>
 
   <csolution>
-    <clayer type="Board" path="Layers/Default" file="Board.clayer.yml" copy-to="Board/B-U585I-IOT02A" condition="B-U585I-IOT02A"/>
+    <clayer type="Board" path="Layers/Default"           file="Board.clayer.yml" copy-to="Board/B-U585I-IOT02A" condition="B-U585I-IOT02A"/>
+    <clayer type="Board" path="Layers/USBD_WiFi_Sensors" file="Board.clayer.yml" copy-to="Board/B-U585I-IOT02A" condition="B-U585I-IOT02A"/>
+    <clayer type="Board" path="Layers/USBH_WiFi_Sensors" file="Board.clayer.yml" copy-to="Board/B-U585I-IOT02A" condition="B-U585I-IOT02A"/>
   </csolution>
 
   <boards>

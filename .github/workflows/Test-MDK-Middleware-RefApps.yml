@@ -19,10 +19,8 @@ jobs:
       fail-fast: false
       matrix:
         solution: [
-#         {name: FileSystem, dir: FileSystem, layer_ac6: ./BSP/Layers/Default, layer_gcc: ./.ci/Layers/Default_GCC},
-#         {name: Network,    dir: Network,    layer_ac6: ./BSP/Layers/Default, layer_gcc: ./.ci/Layers/Default_GCC},
-          {name: USB_Device, dir: USB/Device, layer_ac6: ./BSP/Layers/Default, layer_gcc: ./.ci/Layers/Default_GCC},
-#         {name: USB_Host,   dir: USB/Host,   layer_ac6: ./BSP/Layers/Default, layer_gcc: ./.ci/Layers/Default_GCC}
+          {name: USB_Device, dir: USB/Device, layer_ac6: ./BSP/Layers/USBD_WiFi_Sensors, layer_gcc: ./.ci/Layers/GCC/USBD_WiFi_Sensors},
+          {name: USB_Host,   dir: USB/Host,   layer_ac6: ./BSP/Layers/USBH_WiFi_Sensors, layer_gcc: ./.ci/Layers/GCC/USBH_WiFi_Sensors}
         ]
 
     steps:

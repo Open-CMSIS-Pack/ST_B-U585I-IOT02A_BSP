@@ -4,6 +4,8 @@
   * @file           : main.c
   * @brief          : Main program body
   ******************************************************************************
+  * @note    modified by Arm
+  *
   * @attention
   *
   * Copyright (c) 2024 STMicroelectronics.
@@ -21,7 +23,9 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+
 #include "cmsis_vio.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -104,14 +108,16 @@ int main(void)
 
   /* USER CODE END Init */
 
-  /* Configure the system clock */
-  SystemClock_Config();
-
   /* Configure the System Power */
   SystemPower_Config();
 
+  /* Configure the system clock */
+  SystemClock_Config();
+
   /* USER CODE BEGIN SysInit */
+
   SystemCoreClockUpdate();
+
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */

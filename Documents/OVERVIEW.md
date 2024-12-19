@@ -23,6 +23,34 @@ The **STMicroelectronics B-U585I-IOT02A Board Support Pack (BSP)**:
 | ARDUINO_UNO_SPI               | CMSIS-Driver SPI connected to Arduino SPI pins D11..D13
 | ARDUINO_UNO_UART              | CMSIS-Driver USART connected to Arduino UART pins D0..D1
 
+- [Board Layer - USBD_WiFi_Sensors](https://github.com/Open-CMSIS-Pack/ST_B-U585I-IOT02A_BSP/tree/main/Layers/USBD_WiFi_Sensors) for device-agnostic [Reference Applications](https://github.com/Open-CMSIS-Pack/cmsis-toolbox/blob/main/docs/ReferenceApplications.md) that implements these API interfaces:
+
+| Provided API Interface        | Description
+|:------------------------------|:------------------------------------------------------------------------------
+| CMSIS_USART                   | CMSIS-Driver USART connected to ST-Mod pins 2S1, 3S1 (CN3)
+| CMSIS_USB_Device              | CMSIS-Driver USB Device connected to User USB connector (CN1)
+| CMSIS_VIO                     | CMSIS-Driver VIO connected to LEDs (LD6, LD7) and USER button (B3)
+| CMSIS_WiFi                    | CMSIS-Driver WiFi for on-board MXCHIP EMW3080 WiFi module
+| STDIN, STDOUT, STDERR         | Standard I/O connected to Virtual COM port on ST-LINK connector (CN8)
+| ARDUINO_UNO_D2..D10, D14..D19 | CMSIS-Driver GPIO connected to Arduino digital I/O pins D2..D10 and D14..D19
+| ARDUINO_UNO_I2C               | CMSIS-Driver I2C connected to Arduino I2C pins D20..D21
+| ARDUINO_UNO_SPI               | CMSIS-Driver SPI connected to Arduino SPI pins D11..D13
+| ARDUINO_UNO_UART              | CMSIS-Driver USART connected to Arduino UART pins D0..D1
+
+- [Board Layer - USBH_WiFi_Sensors](https://github.com/Open-CMSIS-Pack/ST_B-U585I-IOT02A_BSP/tree/main/Layers/USBH_WiFi_Sensors) for device-agnostic [Reference Applications](https://github.com/Open-CMSIS-Pack/cmsis-toolbox/blob/main/docs/ReferenceApplications.md) that implements these API interfaces:
+
+| Provided API Interface        | Description
+|:------------------------------|:------------------------------------------------------------------------------
+| CMSIS_USART                   | CMSIS-Driver USART connected to ST-Mod pins 2S1, 3S1 (CN3)
+| CMSIS_USB_Host                | CMSIS-Driver USB Host connected to User USB connector (CN1)
+| CMSIS_VIO                     | CMSIS-Driver VIO connected to LEDs (LD6, LD7) and USER button (B3)
+| CMSIS_WiFi                    | CMSIS-Driver WiFi for on-board MXCHIP EMW3080 WiFi module
+| STDIN, STDOUT, STDERR         | Standard I/O connected to Virtual COM port on ST-LINK connector (CN8)
+| ARDUINO_UNO_D2..D10, D14..D19 | CMSIS-Driver GPIO connected to Arduino digital I/O pins D2..D10 and D14..D19
+| ARDUINO_UNO_I2C               | CMSIS-Driver I2C connected to Arduino I2C pins D20..D21
+| ARDUINO_UNO_SPI               | CMSIS-Driver SPI connected to Arduino SPI pins D11..D13
+| ARDUINO_UNO_UART              | CMSIS-Driver USART connected to Arduino UART pins D0..D1
+
 ## Using GCC Compiler
 
 By default the [Board Layers](https://github.com/Open-CMSIS-Pack/ST_B-U585I-IOT02A_BSP/tree/main/Layers) are configured for the Arm Compiler 6 (AC6). Using STM32CubeMX it can be reconfigured for a different compiler. To configure it for the GCC compiler execute these steps:
