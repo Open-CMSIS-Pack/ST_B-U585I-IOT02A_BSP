@@ -26,12 +26,12 @@ Refer to ["Configure STM32 Devices with CubeMX"](https://github.com/Open-CMSIS-P
 |:----------------------|:----------------------|:----------------------------------------------|:------------------------------
 | Driver_GPIO0          | GPIO                  | Arduino digital I/O pins D2..D10, D14..D19    | ARDUINO_UNO_D2..D10, D14..D19
 | Driver_I2C1           | I2C1                  | Arduino I2C pins D20..D21                     | ARDUINO_UNO_I2C
-| Driver_SPI1           | SPI1                  | Arduino SPI pins D10..D13                     | ARDUINO_UNO_SPI
-| Driver_USART3         | USART3                | Arduino UART pins D0..D1                      | ARDUINO_UNO_UART
+| Driver_SPI1           | SPI1 (DMA)            | Arduino SPI pins D10..D13                     | ARDUINO_UNO_SPI
+| Driver_USART3         | USART3 (DMA)          | Arduino UART pins D0..D1                      | ARDUINO_UNO_UART
 | Driver_USART2         | USART2                | ST-Mod pins 2S1, 3S1 (CN3)                    | CMSIS_USART
 | Driver_USART1         | USART1                | ST-LINK connector (CN8)                       | STDIN, STDOUT, STDERR
 | Driver_USBD0          | USB_OTG_FS            | User USB connector (CN1)                      | CMSIS_USB_Device
-| Driver_WiFi0          | SPI2, GPIO            | MXCHIP EMW3080                                | CMSIS_WiFi
+| Driver_WiFi0          | SPI2 (DMA), GPIO      | MXCHIP EMW3080                                | CMSIS_WiFi
 | CMSIS-Driver VIO      | GPIO                  | LEDs (LD6, LD7) and USER button (B3)          | CMSIS_VIO
 
 Reference to [Arduino UNO connector description](https://github.com/Open-CMSIS-Pack/cmsis-toolbox/blob/main/docs/ReferenceApplications.md#arduino-shield).
