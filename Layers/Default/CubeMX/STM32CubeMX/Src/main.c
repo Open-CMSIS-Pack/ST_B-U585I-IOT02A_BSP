@@ -99,6 +99,42 @@ static void MX_ICACHE_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
+/* Configure SRAMs to allow non-secure/unprivileged accesses.
+   This is done to enable application built for the TrustZone disabled device
+   to run on the TrustZone enabled device without a dedicated Secure application.
+*/
+static void SRAM_Config (void) {
+  GTZC_MPCBB_TypeDef *mpcbb_ptr;
+
+  mpcbb_ptr = GTZC_MPCBB1;                      // MPCBB for SRAM1
+  mpcbb_ptr->CR = GTZC_MPCBB_CR_SRWILADIS_Msk;  // Allow secure read/write access to non-secure SRAM1 block
+  for (uint32_t i = 0U; i < (SRAM1_SIZE / (32*512)); i++) {
+    mpcbb_ptr->SECCFGR[i]  = 0U;                // Allow non-secure access to SRAM1 super-block (32 blocks of 512 bytes)
+    mpcbb_ptr->PRIVCFGR[i] = 0U;                // Allow privilieged/unprivileged access to SRAM1 super-block
+  }
+
+  mpcbb_ptr = GTZC_MPCBB2;                      // MPCBB for SRAM2
+  mpcbb_ptr->CR = GTZC_MPCBB_CR_SRWILADIS_Msk;  // Allow secure read/write access to non-secure SRAM2 block
+  for (uint32_t i = 0U; i < (SRAM2_SIZE / (32*512)); i++) {
+    mpcbb_ptr->SECCFGR[i]  = 0U;                // Allow non-secure access to SRAM2 super-block (32 blocks of 512 bytes)
+    mpcbb_ptr->PRIVCFGR[i] = 0U;                // Allow privilieged/unprivileged access to SRAM2 super-block
+  }
+
+  mpcbb_ptr = GTZC_MPCBB3;                      // MPCBB for SRAM3
+  mpcbb_ptr->CR = GTZC_MPCBB_CR_SRWILADIS_Msk;  // Allow secure read/write access to non-secure SRAM3 block
+  for (uint32_t i = 0U; i < (SRAM3_SIZE / (32*512)); i++) {
+    mpcbb_ptr->SECCFGR[i]  = 0U;                // Allow non-secure access to SRAM3 super-block (32 blocks of 512 bytes)
+    mpcbb_ptr->PRIVCFGR[i] = 0U;                // Allow privilieged/unprivileged access to SRAM3 super-block
+  }
+
+  mpcbb_ptr = GTZC_MPCBB4;                      // MPCBB for SRAM4
+  mpcbb_ptr->CR = GTZC_MPCBB_CR_SRWILADIS_Msk;  // Allow secure read/write access to non-secure SRAM4 block
+  for (uint32_t i = 0U; i < (SRAM4_SIZE / (32*512)); i++) {
+    mpcbb_ptr->SECCFGR[i]  = 0U;                // Allow non-secure access to SRAM4 super-block (32 blocks of 512 bytes)
+    mpcbb_ptr->PRIVCFGR[i] = 0U;                // Allow privilieged/unprivileged access to SRAM4 super-block
+  }
+}
+
 /* USER CODE END 0 */
 
 /**
@@ -109,6 +145,10 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
+
+  if ((FLASH->OPTR & FLASH_OPTR_TZEN) != 0U) {  /* If TrustZone is enabled */
+    SRAM_Config();                      /* Configure SRAMs to allow non-secure/unprivileged accesses */
+  }
 
   /* USER CODE END 1 */
 
