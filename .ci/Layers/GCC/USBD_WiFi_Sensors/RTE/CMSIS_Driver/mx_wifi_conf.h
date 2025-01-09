@@ -41,9 +41,9 @@ extern "C" {
 #define MXCHIP_SPI                                  hspi2
 #endif
 
-/* SPI DMA not used, so SPI would work also on TrustZone enabled device with SAU disabled */
+/* Use DMA for SPI communication with MXCHIP module. */
 #ifndef DMA_ON_USE
-#define DMA_ON_USE                                  (0)
+#define DMA_ON_USE                                  (1)
 #endif /* DMA_ON_USE */
 
 /* Use RTOS. */
