@@ -2,7 +2,7 @@
 
 The **STMicroelectronics B-U585I-IOT02A Board Support Pack (BSP)**:
 
-- Contains examples and board layers in *csolution format* for usage with the [CMSIS-Toolbox](https://github.com/Open-CMSIS-Pack/cmsis-toolbox/blob/main/docs/README.md) and the  [VS Code CMSIS Solution](https://marketplace.visualstudio.com/items?itemName=Arm.cmsis-csolution) extension.
+- Contains examples and board layers in *csolution format* for usage with the [CMSIS-Toolbox](https://open-cmsis-pack.github.io/cmsis-toolbox/) and the  [VS Code CMSIS Solution](https://marketplace.visualstudio.com/items?itemName=Arm.cmsis-csolution) extension.
 - Requires the [Device Family Pack (DFP) for the STM32U5 series](https://www.keil.arm.com/packs/stm32u5xx_dfp-keil).
 - Is configured with [STM32CubeMX](https://www.st.com/en/development-tools/stm32cubemx.html) for the Arm Compiler 6 (MDK). [Using GCC Compiler](#using-gcc-compiler) explains how to configured it for a different compiler.
 
@@ -10,7 +10,7 @@ The **STMicroelectronics B-U585I-IOT02A Board Support Pack (BSP)**:
 
 - [Examples/Blinky](https://github.com/Open-CMSIS-Pack/ST_B-U585I-IOT02A_BSP/tree/main/Examples/Blinky) shows the basic usage of this board.
 
-- [Board Layer](https://github.com/Open-CMSIS-Pack/ST_B-U585I-IOT02A_BSP/tree/main/Layers/Default) for device-agnostic [Reference Applications](https://github.com/Open-CMSIS-Pack/cmsis-toolbox/blob/main/docs/ReferenceApplications.md) that implements these API interfaces:
+- [Board Layer](https://github.com/Open-CMSIS-Pack/ST_B-U585I-IOT02A_BSP/tree/main/Layers/Default) for device-agnostic [Reference Applications](https://open-cmsis-pack.github.io/cmsis-toolbox/ReferenceApplications/) that implements these API interfaces:
 
 | Provided API Interface        | Description
 |:------------------------------|:------------------------------------------------------------------------------
@@ -23,7 +23,7 @@ The **STMicroelectronics B-U585I-IOT02A Board Support Pack (BSP)**:
 | ARDUINO_UNO_SPI               | CMSIS-Driver SPI connected to Arduino SPI pins D11..D13
 | ARDUINO_UNO_UART              | CMSIS-Driver USART connected to Arduino UART pins D0..D1
 
-- [Board Layer - USBD_WiFi_Sensors](https://github.com/Open-CMSIS-Pack/ST_B-U585I-IOT02A_BSP/tree/main/Layers/USBD_WiFi_Sensors) for device-agnostic [Reference Applications](https://github.com/Open-CMSIS-Pack/cmsis-toolbox/blob/main/docs/ReferenceApplications.md) that implements these API interfaces:
+- [Board Layer - USBD_WiFi_Sensors](https://github.com/Open-CMSIS-Pack/ST_B-U585I-IOT02A_BSP/tree/main/Layers/USBD_WiFi_Sensors) for device-agnostic [Reference Applications](https://open-cmsis-pack.github.io/cmsis-toolbox/ReferenceApplications/) that implements these API interfaces:
 
 | Provided API Interface        | Description
 |:------------------------------|:------------------------------------------------------------------------------
@@ -37,7 +37,7 @@ The **STMicroelectronics B-U585I-IOT02A Board Support Pack (BSP)**:
 | ARDUINO_UNO_SPI               | CMSIS-Driver SPI connected to Arduino SPI pins D11..D13
 | ARDUINO_UNO_UART              | CMSIS-Driver USART connected to Arduino UART pins D0..D1
 
-- [Board Layer - USBH_WiFi_Sensors](https://github.com/Open-CMSIS-Pack/ST_B-U585I-IOT02A_BSP/tree/main/Layers/USBH_WiFi_Sensors) for device-agnostic [Reference Applications](https://github.com/Open-CMSIS-Pack/cmsis-toolbox/blob/main/docs/ReferenceApplications.md) that implements these API interfaces:
+- [Board Layer - USBH_WiFi_Sensors](https://github.com/Open-CMSIS-Pack/ST_B-U585I-IOT02A_BSP/tree/main/Layers/USBH_WiFi_Sensors) for device-agnostic [Reference Applications](https://open-cmsis-pack.github.io/cmsis-toolbox/ReferenceApplications/) that implements these API interfaces:
 
 | Provided API Interface        | Description
 |:------------------------------|:------------------------------------------------------------------------------
