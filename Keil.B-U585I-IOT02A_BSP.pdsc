@@ -161,7 +161,6 @@
       <book category="manual"    name="https://www.st.com/resource/en/user_manual/um2839-discovery-kit-for-iot-node-with-stm32u5-series-stmicroelectronics.pdf" title="User Manual" public="true"/>
       <book category="other"     name="Documents/README.md"                                        title="Guide"              public="true"/>
       <mountedDevice    deviceIndex="0" Dvendor="STMicroelectronics:13" Dname="STM32U585AIIx"/>
-      <compatibleDevice deviceIndex="0" Dvendor="STMicroelectronics:13" DsubFamily="STM32U585"/>
       <memory name="RAM-External"   access="rwx" start="0x90000000" size="0x00800000"/>
       <memory name="Flash-External" access="rx"  start="0x70000000" size="0x04000000"/>
       <feature type="ODbg"          n="1"                name="On-board ST-LINK-V3E"/>
