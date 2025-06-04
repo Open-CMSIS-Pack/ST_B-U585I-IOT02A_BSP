@@ -14,12 +14,17 @@
   </licenseSets>
 
   <releases>
-    <release version="2.1.0-dev">
+    <release version="2.1.1-dev">
       Active development ...
       Updated all CubeMX generated files using STM32CubeMX v6.13.0
       CMSIS Drivers:
       - Added WiFi driver for on-board MXCHIP EMW3080 WiFi module
         (Requires EMW3080B MXCHIP WiFi module firmware v2.3.4 rc 13)
+      Blinky project:
+      - specify thread names using thread attributes
+      - rename thread IDs
+      - modify app_main_thread (replace loop forever)
+      - add DWARF-5 debug information
       Layers:
       - Added layer supporting USB Device, Audio, Environment and Motion Sensors
       - Added layer supporting USB Host,   Audio, Environment and Motion Sensors
