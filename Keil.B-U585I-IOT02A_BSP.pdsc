@@ -14,7 +14,7 @@
   </licenseSets>
 
   <releases>
-    <release version="2.1.1-dev">
+    <release version="2.1.2-dev">
       Active development ...
       Updated all CubeMX generated files using STM32CubeMX v6.13.0
       CMSIS Drivers:
@@ -25,6 +25,11 @@
       - rename thread IDs
       - modify app_main_thread (replace loop forever)
       - add DWARF-5 debug information
+      - add Blinky+B-U585I-IOT02A.dbgconf and Blinky+B-U585I-IOT02A.dbgconf.base@1.0.0
+      CI workflows:
+      - split the CI action for preparing the MW-RefApps folder structure into 3 smaller actions to improve readability.
+      - modified the Test-Examples.yml and Test-MDK-Middleware-RefApps.yml workflows
+      - updated settings in vcpkg-configuration.json file to use cmsis-toolbox 2.9.0
       Layers:
       - Added layer supporting USB Device, Audio, Environment and Motion Sensors
       - Added layer supporting USB Host,   Audio, Environment and Motion Sensors
