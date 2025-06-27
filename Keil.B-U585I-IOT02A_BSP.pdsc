@@ -14,7 +14,7 @@
   </licenseSets>
 
   <releases>
-    <release version="2.1.2-dev">
+    <release version="2.1.1-dev">
       Active development ...
       Updated all CubeMX generated files using STM32CubeMX v6.13.0
       CMSIS Drivers:
