@@ -25,6 +25,7 @@
       - rename thread IDs
       - modify app_main_thread (replace loop forever)
       - add DWARF-5 debug information
+      - add Blinky+B-U585I-IOT02A.dbgconf and Blinky+B-U585I-IOT02A.dbgconf.base@1.0.0
       Layers:
       - Added layer supporting USB Device, Audio, Environment and Motion Sensors
       - Added layer supporting USB Host,   Audio, Environment and Motion Sensors
