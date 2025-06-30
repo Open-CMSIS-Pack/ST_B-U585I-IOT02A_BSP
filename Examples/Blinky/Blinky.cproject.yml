@@ -44,3 +44,10 @@ project:
     - script:  ./RTE/Device/STM32U585AIIx/ac6_linker_script.sct.src
       regions: ./RTE/Device/STM32U585AIIx/regions_B-U585I-IOT02A.h
       for-compiler: AC6
+
+  # List executable file formats to be generated.
+  output:
+    type:
+      - elf
+      - hex
+      - map
