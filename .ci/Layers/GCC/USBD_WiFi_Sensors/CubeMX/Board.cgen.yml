@@ -1,5 +1,5 @@
 generator-import:
-  for-device: STM32U585AIIx
+  for-device: STMicroelectronics::STM32U585AIIx
   for-board: B-U585I-IOT02A
   define:
     - USE_FULL_LL_DRIVER

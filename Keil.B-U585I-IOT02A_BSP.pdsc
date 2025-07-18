@@ -14,8 +14,14 @@
   </licenseSets>
 
   <releases>
-    <release version="2.1.1-dev">
+    <release version="3.0.0-dev">
       Active development ...
+      CMSIS Drivers:
+      - Added vStream Accelerometer driver
+      - Added vStream Audio In driver
+      - Updated WiFi driver (changed mx_wifi component driver and configuration file location)
+      STMicroelectronics BSP/Component Drivers:
+      - Updated all drivers to STM32CubeU5 Firmware Package version V1.8.0
     </release>
     <release version="1.1.0" date="2024-04-10">
       Synchronized with STM32CubeU5 Firmware Package version V1.2.0
@@ -62,7 +68,7 @@
   <requirements>
     <packages>
       <package vendor="Keil" name="STM32U5xx_DFP"      version="3.0.0-0"/>
-      <package vendor="ARM"  name="CMSIS"              version="6.0.0-0"/>
+      <package vendor="ARM"  name="CMSIS"              version="6.2.0-0"/>
       <package vendor="ARM"  name="CMSIS-Driver_STM32" version="1.0.0-0"/>
     </packages>
   </requirements>
@@ -71,7 +77,8 @@
     <!-- Board Condition -->
     <condition id="B-U585I-IOT02A">
       <description>STMicroelectronics B-U585I-IOT02A Board</description>
-      <require Bvendor="STMicroelectronics" Bname="B-U585I-IOT02A"/>
+      <require Dvendor="STMicroelectronics:13" Dname="STM32U585AIIx"/>
+      <require Bvendor="STMicroelectronics"    Bname="B-U585I-IOT02A"/>
     </condition>
 
     <!-- Board Condition + CMSIS Driver GPIO -->
@@ -81,15 +88,113 @@
       <require Cclass="CMSIS Driver" Cgroup="GPIO"/>
     </condition>
 
+    <!-- Board Condition + BSP/Component Drivers -->
+    <condition id="B-U585I-IOT02A BSP">
+      <description>STMicroelectronics B-U585I-IOT02A Board with all STMicroelectronics BSP and Component Drivers</description>
+      <require condition="B-U585I-IOT02A"/>
+      <require Cclass="Board Support" Cgroup="Drivers"/>
+    </condition>
+
     <!-- Board Condition + CMSIS RTOS2 -->
     <condition id="B-U585I-IOT02A RTOS2">
       <description>STMicroelectronics B-U585I-IOT02A Board with CMSIS-RTOS2</description>
       <require condition="B-U585I-IOT02A"/>
-      <require Cclass="CMSIS"        Cgroup="RTOS2"/>
+      <require Cclass="CMSIS" Cgroup="RTOS2"/>
+    </condition>
+
+    <!-- Board Condition + BSP/Component Drivers + CMSIS RTOS2 -->
+    <condition id="B-U585I-IOT02A BSP RTOS2">
+      <description>STMicroelectronics B-U585I-IOT02A Board with all STMicroelectronics BSP, Component Drivers and CMSIS-RTOS2</description>
+      <require condition="B-U585I-IOT02A BSP"/>
+      <require condition="B-U585I-IOT02A RTOS2"/>
     </condition>
   </conditions>
 
   <components>
+    <!-- STMicroelectronics BSP/Component Drivers -->
+    <bundle Cbundle="B-U585I-IOT02A" Cclass="Board Support" Cversion="2.0.0">
+      <description>STMicroelectronics Board Support for B-U585I-IOT02A board</description>
+      <doc>Drivers/BSP/B-U585I-IOT02A/B-U585I-IOT02A_BSP_User_Manual.chm</doc>
+      <component Cgroup="Drivers" condition="B-U585I-IOT02A">
+        <description>All STMicroelectronics BSP and Component Drivers for B-U585I-IOT02A board</description>
+        <RTE_Components_h>
+          #define RTE_BSP
+          #define RTE_BSP_B_U585I_IOT02A
+        </RTE_Components_h>
+        <files>
+          <!-- BSP Drivers -->
+          <file category="doc"     name="Drivers/BSP/B-U585I-IOT02A/B-U585I-IOT02A_BSP_User_Manual.chm"/>
+          <file category="header"  name="Drivers/BSP/B-U585I-IOT02A/Config/b_u585i_iot02a_conf.h" attr="config" version="2.0.0"/>
+          <file category="header"  name="Drivers/BSP/B-U585I-IOT02A/b_u585i_iot02a.h"/>
+          <file category="source"  name="Drivers/BSP/B-U585I-IOT02A/b_u585i_iot02a.c"/>
+          <file category="header"  name="Drivers/BSP/B-U585I-IOT02A/b_u585i_iot02a_audio.h"/>
+          <file category="source"  name="Drivers/BSP/B-U585I-IOT02A/b_u585i_iot02a_audio.c"/>
+          <file category="header"  name="Drivers/BSP/B-U585I-IOT02A/b_u585i_iot02a_bus.h"/>
+          <file category="source"  name="Drivers/BSP/B-U585I-IOT02A/b_u585i_iot02a_bus.c"/>
+          <file category="header"  name="Drivers/BSP/B-U585I-IOT02A/b_u585i_iot02a_eeprom.h"/>
+          <file category="source"  name="Drivers/BSP/B-U585I-IOT02A/b_u585i_iot02a_eeprom.c"/>
+          <file category="header"  name="Drivers/BSP/B-U585I-IOT02A/b_u585i_iot02a_env_sensors.h"/>
+          <file category="source"  name="Drivers/BSP/B-U585I-IOT02A/b_u585i_iot02a_env_sensors.c"/>
+          <file category="header"  name="Drivers/BSP/B-U585I-IOT02A/b_u585i_iot02a_light_sensor.h"/>
+          <file category="source"  name="Drivers/BSP/B-U585I-IOT02A/b_u585i_iot02a_light_sensor.c"/>
+          <file category="header"  name="Drivers/BSP/B-U585I-IOT02A/b_u585i_iot02a_motion_sensors.h"/>
+          <file category="source"  name="Drivers/BSP/B-U585I-IOT02A/b_u585i_iot02a_motion_sensors.c"/>
+          <file category="header"  name="Drivers/BSP/B-U585I-IOT02A/b_u585i_iot02a_ospi.h"/>
+          <file category="source"  name="Drivers/BSP/B-U585I-IOT02A/b_u585i_iot02a_ospi.c"/>
+          <file category="header"  name="Drivers/BSP/B-U585I-IOT02A/b_u585i_iot02a_ranging_sensor.h"/>
+          <file category="source"  name="Drivers/BSP/B-U585I-IOT02A/b_u585i_iot02a_ranging_sensor.c"/>
+          <file category="header"  name="Drivers/BSP/B-U585I-IOT02A/b_u585i_iot02a_usbpd_pwr.h"/>
+          <file category="source"  name="Drivers/BSP/B-U585I-IOT02A/b_u585i_iot02a_usbpd_pwr.c"/>
+      
+          <!-- Component Drivers -->
+          <file category="include" name="Drivers/BSP/Components/Common/"/>
+          <file category="header"  name="Drivers/BSP/Components/aps6408/Config/aps6408_conf.h" attr="config" version="2.0.0"/>
+          <file category="source"  name="Drivers/BSP/Components/aps6408/aps6408.c"/>
+          <file category="source"  name="Drivers/BSP/Components/hts221/hts221.c"/>
+          <file category="source"  name="Drivers/BSP/Components/hts221/hts221_reg.c"/>
+          <file category="source"  name="Drivers/BSP/Components/iis2mdc/iis2mdc.c"/>
+          <file category="source"  name="Drivers/BSP/Components/iis2mdc/iis2mdc_reg.c"/>
+          <file category="header"  name="Drivers/BSP/Components/ism330dhcx/ism330dhcx.h"/>
+          <file category="source"  name="Drivers/BSP/Components/ism330dhcx/ism330dhcx.c"/>
+          <file category="header"  name="Drivers/BSP/Components/ism330dhcx/ism330dhcx_fifo.h"/>
+          <file category="source"  name="Drivers/BSP/Components/ism330dhcx/ism330dhcx_fifo.c"/>
+          <file category="source"  name="Drivers/BSP/Components/ism330dhcx/ism330dhcx_reg.c"/>
+          <file category="source"  name="Drivers/BSP/Components/lps22hh/lps22hh.c"/>
+          <file category="source"  name="Drivers/BSP/Components/lps22hh/lps22hh_reg.c"/>
+          <file category="source"  name="Drivers/BSP/Components/m24256/m24256.c"/>
+          <file category="header"  name="Drivers/BSP/Components/mx_wifi/Config/mx_wifi_conf.h" attr="config" version="3.0.0"/>
+          <file category="include" name="Drivers/BSP/Components/mx_wifi/"/>
+          <file category="source"  name="Drivers/BSP/Components/mx_wifi/mx_wifi.c"/>
+          <file category="include" name="Drivers/BSP/Components/mx_wifi/core/"/>
+          <file category="source"  name="Drivers/BSP/Components/mx_wifi/core/checksumutils.c"/>
+          <file category="source"  name="Drivers/BSP/Components/mx_wifi/core/mx_address.c"/>
+          <file category="source"  name="Drivers/BSP/Components/mx_wifi/core/mx_rtos_abs.c"/>
+          <file category="source"  name="Drivers/BSP/Components/mx_wifi/core/mx_wifi_hci.c"/>
+          <file category="source"  name="Drivers/BSP/Components/mx_wifi/core/mx_wifi_ipc.c"/>
+          <file category="source"  name="Drivers/BSP/Components/mx_wifi/core/mx_wifi_slip.c"/>
+          <file category="include" name="Drivers/BSP/Components/mx_wifi/io_pattern/"/>
+          <file category="source"  name="Drivers/BSP/Components/mx_wifi/io_pattern/mx_wifi_spi.c"/>
+          <file category="source"  name="Drivers/BSP/Components/mx_wifi/io_pattern/mx_wifi_uart.c"/>
+          <file category="header"  name="Drivers/BSP/Components/mx25lm51245g/Config/mx25lm51245g_conf.h" attr="config" version="2.0.0"/>
+          <file category="source"  name="Drivers/BSP/Components/mx25lm51245g/mx25lm51245g.c"/>
+          <file category="source"  name="Drivers/BSP/Components/ov5640/ov5640.c"/>
+          <file category="source"  name="Drivers/BSP/Components/ov5640/ov5640_reg.c"/>
+          <file category="source"  name="Drivers/BSP/Components/tcpp0203/tcpp0203.c"/>
+          <file category="source"  name="Drivers/BSP/Components/tcpp0203/tcpp0203_reg.c"/>
+          <file category="source"  name="Drivers/BSP/Components/veml3235/veml3235.c"/>
+          <file category="source"  name="Drivers/BSP/Components/veml3235/veml3235_reg.c"/>
+          <file category="source"  name="Drivers/BSP/Components/vl53l5cx/vl53l5cx.c"/>
+          <file category="include" name="Drivers/BSP/Components/vl53l5cx/modules/"/>
+          <file category="source"  name="Drivers/BSP/Components/vl53l5cx/modules/vl53l5cx_api.c"/>
+          <file category="source"  name="Drivers/BSP/Components/vl53l5cx/modules/vl53l5cx_plugin_detection_thresholds.c"/>
+          <file category="source"  name="Drivers/BSP/Components/vl53l5cx/modules/vl53l5cx_plugin_motion_indicator.c"/>
+          <file category="source"  name="Drivers/BSP/Components/vl53l5cx/modules/vl53l5cx_plugin_xtalk.c"/>
+          <file category="include" name="Drivers/BSP/Components/vl53l5cx/porting/"/>
+          <file category="source"  name="Drivers/BSP/Components/vl53l5cx/porting/platform.c"/>
+        </files>
+      </component>
+    </bundle>
+
     <!-- CMSIS VIO Driver -->
     <component Cclass="CMSIS Driver" Cgroup="VIO" Csub="Board" Cversion="2.0.2" Capiversion="1.0.0" condition="B-U585I-IOT02A GPIO">
       <description>Virtual I/O Driver for B-U585I-IOT02A board</description>
@@ -102,8 +207,36 @@
       </files>
     </component>
 
+    <!-- CMSIS vStream Driver for Accelerometer -->
+    <component Cclass="CMSIS Driver" Cgroup="vStream" Csub="Accelerometer" Cversion="1.0.0" Capiversion="1.0.0" condition="B-U585I-IOT02A BSP RTOS2">
+      <description>Accelerometer vStream Driver for B-U585I-IOT02A board</description>
+      <RTE_Components_h>
+        #define RTE_VSTREAM_ACCELEROMETER
+        #define RTE_VSTREAM_ACCELEROMETER_B_U585I_IOT02A
+      </RTE_Components_h>
+      <files>
+        <file category="header" name="Drivers/CMSIS/Config/vstream_accelerometer_config.h" attr="config" version="1.0.0"/>
+        <file category="header" name="Drivers/CMSIS/vstream_accelerometer.h"/>
+        <file category="source" name="Drivers/CMSIS/vstream_accelerometer.c"/>
+      </files>
+    </component>
+
+    <!-- CMSIS vStream Driver for Audio In (microphone) -->
+    <component Cclass="CMSIS Driver" Cgroup="vStream" Csub="AudioIn" Cversion="1.0.0" Capiversion="1.0.0" condition="B-U585I-IOT02A BSP">
+      <description>Audio Input vStream Driver for B-U585I-IOT02A board</description>
+      <RTE_Components_h>
+        #define RTE_VSTREAM_AUDIO_IN
+        #define RTE_VSTREAM_AUDIO_IN_B_U585I_IOT02A
+      </RTE_Components_h>
+      <files>
+        <file category="header" name="Drivers/CMSIS/Config/vstream_audio_in_config.h" attr="config" version="1.0.0"/>
+        <file category="header" name="Drivers/CMSIS/vstream_audio_in.h"/>
+        <file category="source" name="Drivers/CMSIS/vstream_audio_in.c"/>
+      </files>
+    </component>
+
     <!-- CMSIS WiFi Driver for on-board MXCHIP EMW3080 WiFi module -->
-    <component Cclass="CMSIS Driver" Cgroup="WiFi" Csub="EMW3080" Capiversion="1.1.0" Cvariant="SPI" Cversion="1.1.0" condition="B-U585I-IOT02A RTOS2">
+    <component Cclass="CMSIS Driver" Cgroup="WiFi" Csub="EMW3080" Capiversion="1.1.0" Cvariant="SPI" Cversion="2.0.0" condition="B-U585I-IOT02A BSP RTOS2">
       <description>WiFi MXCHIP EMW3080 Driver (SPI) for B-U585I-IOT02A board</description>
       <RTE_Components_h>
         #define RTE_Drivers_WiFi
@@ -114,19 +247,6 @@
         <file category="header"  name="Drivers/CMSIS/Config/WiFi_EMW3080_Config.h" attr="config" version="1.1.0"/>
         <file category="header"  name="Drivers/CMSIS/WiFi_EMW3080.h"/>
         <file category="source"  name="Drivers/CMSIS/WiFi_EMW3080.c"/>
-        <file category="header"  name="Drivers/BSP/Components/mx_wifi/Config/mx_wifi_conf.h" attr="config" version="2.0.0"/>
-        <file category="include" name="Drivers/BSP/Components/mx_wifi/"/>
-        <file category="source"  name="Drivers/BSP/Components/mx_wifi/mx_wifi.c"/>
-        <file category="include" name="Drivers/BSP/Components/mx_wifi/core/"/>
-        <file category="source"  name="Drivers/BSP/Components/mx_wifi/core/checksumutils.c"/>
-        <file category="source"  name="Drivers/BSP/Components/mx_wifi/core/mx_address.c"/>
-        <file category="source"  name="Drivers/BSP/Components/mx_wifi/core/mx_rtos_abs.c"/>
-        <file category="source"  name="Drivers/BSP/Components/mx_wifi/core/mx_wifi_hci.c"/>
-        <file category="source"  name="Drivers/BSP/Components/mx_wifi/core/mx_wifi_ipc.c"/>
-        <file category="source"  name="Drivers/BSP/Components/mx_wifi/core/mx_wifi_slip.c"/>
-        <file category="include" name="Drivers/BSP/Components/mx_wifi/io_pattern/"/>
-        <file category="source"  name="Drivers/BSP/Components/mx_wifi/io_pattern/mx_wifi_spi.c"/>
-        <file category="source"  name="Drivers/BSP/Components/mx_wifi/io_pattern/mx_wifi_uart.c"/>
       </files>
     </component>
   </components>

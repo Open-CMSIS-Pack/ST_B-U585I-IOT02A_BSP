@@ -95,7 +95,7 @@ DbgMCU_AHB3_Fz = 0x00000000;
 // <h> TPIU Pin Routing
 //   <o0> TRACECLK
 //     <i> ETM Trace Clock
-//       <0x00040002=> Pin PE2
+//       <0x0002000A=> Pin PE2
 //       <0x00000008=> Pin PA8
 //   <i> TRACECLK: Pin PE2
 //   <o1> TRACED0
