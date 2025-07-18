@@ -22,7 +22,7 @@
 #define __STM32U5xx_IT_H
 
 #ifdef __cplusplus
- extern "C" {
+extern "C" {
 #endif
 
 /* Private includes ----------------------------------------------------------*/
@@ -60,8 +60,6 @@ void GPDMA1_Channel2_IRQHandler(void);
 void GPDMA1_Channel3_IRQHandler(void);
 void GPDMA1_Channel4_IRQHandler(void);
 void GPDMA1_Channel5_IRQHandler(void);
-void GPDMA1_Channel6_IRQHandler(void);
-void GPDMA1_Channel7_IRQHandler(void);
 void I2C1_EV_IRQHandler(void);
 void I2C1_ER_IRQHandler(void);
 void SPI1_IRQHandler(void);
@@ -71,6 +69,8 @@ void USART2_IRQHandler(void);
 void USART3_IRQHandler(void);
 void TIM17_IRQHandler(void);
 void OTG_FS_IRQHandler(void);
+void GPDMA1_Channel8_IRQHandler(void);
+void GPDMA1_Channel9_IRQHandler(void);
 /* USER CODE BEGIN EFP */
 
 /* USER CODE END EFP */

@@ -30,6 +30,8 @@ The **STMicroelectronics B-U585I-IOT02A Board Support Pack (BSP)**:
 | CMSIS_USART                   | CMSIS-Driver USART connected to ST-Mod pins 2S1, 3S1 (CN3)
 | CMSIS_USB_Device              | CMSIS-Driver USB Device connected to User USB connector (CN1)
 | CMSIS_VIO                     | CMSIS-Driver VIO connected to LEDs (LD6, LD7) and USER button (B3)
+| CMSIS_VSTREAM_ACCELEROMETER   | CMSIS-Driver vStream for on-board accelerometer
+| CMSIS_VSTREAM_AUDIO_IN        | CMSIS-Driver vStream for on-board microphone MIC1
 | CMSIS_WiFi                    | CMSIS-Driver WiFi for on-board MXCHIP EMW3080 WiFi module
 | STDIN, STDOUT, STDERR         | Standard I/O connected to Virtual COM port on ST-LINK connector (CN8)
 | ARDUINO_UNO_D2..D10, D14..D19 | CMSIS-Driver GPIO connected to Arduino digital I/O pins D2..D10 and D14..D19
@@ -44,6 +46,8 @@ The **STMicroelectronics B-U585I-IOT02A Board Support Pack (BSP)**:
 | CMSIS_USART                   | CMSIS-Driver USART connected to ST-Mod pins 2S1, 3S1 (CN3)
 | CMSIS_USB_Host                | CMSIS-Driver USB Host connected to User USB connector (CN1)
 | CMSIS_VIO                     | CMSIS-Driver VIO connected to LEDs (LD6, LD7) and USER button (B3)
+| CMSIS_VSTREAM_ACCELEROMETER   | CMSIS-Driver vStream for on-board accelerometer
+| CMSIS_VSTREAM_AUDIO_IN        | CMSIS-Driver vStream for on-board microphone MIC1
 | CMSIS_WiFi                    | CMSIS-Driver WiFi for on-board MXCHIP EMW3080 WiFi module
 | STDIN, STDOUT, STDERR         | Standard I/O connected to Virtual COM port on ST-LINK connector (CN8)
 | ARDUINO_UNO_D2..D10, D14..D19 | CMSIS-Driver GPIO connected to Arduino digital I/O pins D2..D10 and D14..D19

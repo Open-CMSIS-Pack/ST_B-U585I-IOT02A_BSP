@@ -22,6 +22,7 @@
 #include "stm32u5xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "b_u585i_iot02a_audio.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -62,8 +63,8 @@ extern DMA_HandleTypeDef handle_GPDMA1_Channel5;
 extern DMA_HandleTypeDef handle_GPDMA1_Channel4;
 extern SPI_HandleTypeDef hspi1;
 extern SPI_HandleTypeDef hspi2;
-extern DMA_HandleTypeDef handle_GPDMA1_Channel7;
-extern DMA_HandleTypeDef handle_GPDMA1_Channel6;
+extern DMA_HandleTypeDef handle_GPDMA1_Channel9;
+extern DMA_HandleTypeDef handle_GPDMA1_Channel8;
 extern UART_HandleTypeDef huart1;
 extern UART_HandleTypeDef huart2;
 extern UART_HandleTypeDef huart3;
@@ -285,34 +286,6 @@ void GPDMA1_Channel5_IRQHandler(void)
 }
 
 /**
-  * @brief This function handles GPDMA1 Channel 6 global interrupt.
-  */
-void GPDMA1_Channel6_IRQHandler(void)
-{
-  /* USER CODE BEGIN GPDMA1_Channel6_IRQn 0 */
-
-  /* USER CODE END GPDMA1_Channel6_IRQn 0 */
-  HAL_DMA_IRQHandler(&handle_GPDMA1_Channel6);
-  /* USER CODE BEGIN GPDMA1_Channel6_IRQn 1 */
-
-  /* USER CODE END GPDMA1_Channel6_IRQn 1 */
-}
-
-/**
-  * @brief This function handles GPDMA1 Channel 7 global interrupt.
-  */
-void GPDMA1_Channel7_IRQHandler(void)
-{
-  /* USER CODE BEGIN GPDMA1_Channel7_IRQn 0 */
-
-  /* USER CODE END GPDMA1_Channel7_IRQn 0 */
-  HAL_DMA_IRQHandler(&handle_GPDMA1_Channel7);
-  /* USER CODE BEGIN GPDMA1_Channel7_IRQn 1 */
-
-  /* USER CODE END GPDMA1_Channel7_IRQn 1 */
-}
-
-/**
   * @brief This function handles I2C1 Event interrupt.
   */
 void I2C1_EV_IRQHandler(void)
@@ -438,6 +411,52 @@ void OTG_FS_IRQHandler(void)
   /* USER CODE END OTG_FS_IRQn 1 */
 }
 
-/* USER CODE BEGIN 1 */
+/**
+  * @brief This function handles GPDMA1 Channel 8 global interrupt.
+  */
+void GPDMA1_Channel8_IRQHandler(void)
+{
+  /* USER CODE BEGIN GPDMA1_Channel8_IRQn 0 */
 
+  /* USER CODE END GPDMA1_Channel8_IRQn 0 */
+  HAL_DMA_IRQHandler(&handle_GPDMA1_Channel8);
+  /* USER CODE BEGIN GPDMA1_Channel8_IRQn 1 */
+
+  /* USER CODE END GPDMA1_Channel8_IRQn 1 */
+}
+
+/**
+  * @brief This function handles GPDMA1 Channel 9 global interrupt.
+  */
+void GPDMA1_Channel9_IRQHandler(void)
+{
+  /* USER CODE BEGIN GPDMA1_Channel9_IRQn 0 */
+
+  /* USER CODE END GPDMA1_Channel9_IRQn 0 */
+  HAL_DMA_IRQHandler(&handle_GPDMA1_Channel9);
+  /* USER CODE BEGIN GPDMA1_Channel9_IRQn 1 */
+
+  /* USER CODE END GPDMA1_Channel9_IRQn 1 */
+}
+
+/* USER CODE BEGIN 1 */
+/**
+  * @brief  This function handles GPDMA_Channel0 interrupt request.
+  * @param  None
+  * @retval None
+  */
+void GPDMA1_Channel0_IRQHandler(void)
+{
+  BSP_AUDIO_IN_IRQHandler(0, AUDIO_IN_DEVICE_DIGITAL_MIC2);
+}
+
+/**
+  * @brief  This function handles GPDMA_Channel6 interrupt request.
+  * @param  None
+  * @retval None
+  */
+void GPDMA1_Channel6_IRQHandler(void)
+{
+  BSP_AUDIO_IN_IRQHandler(0, AUDIO_IN_DEVICE_DIGITAL_MIC1);
+} 
 /* USER CODE END 1 */

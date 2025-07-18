@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------
- * Copyright (c) 2024 Arm Limited (or its affiliates).
+ * Copyright (c) 2024-2025 Arm Limited (or its affiliates).
  * All rights reserved.
  *
  * SPDX-License-Identifier: Apache-2.0
@@ -27,6 +27,7 @@
 #include "Driver_USBD.h"
 #include "Driver_USBH.h"
 #include "Driver_WiFi.h"
+#include "cmsis_vstream.h"
 
 // Arduino Connector Digital I/O
 #define ARDUINO_UNO_D2      GPIO_PIN_ID_PORTD(15U)
@@ -66,6 +67,8 @@ extern ARM_DRIVER_USART     ARM_Driver_USART_(CMSIS_DRIVER_USART);      // STMod
 extern ARM_DRIVER_USART     ARM_Driver_USART_(RETARGET_STDIO_UART);     // ST-Link
 extern ARM_DRIVER_USBH      ARM_Driver_USBH_(CMSIS_DRIVER_USBH);        // USB Host
 extern ARM_DRIVER_WIFI      ARM_Driver_WiFi_(CMSIS_DRIVER_WIFI);        // WiFi
+extern vStreamDriver_t      Driver_vStreamAccelerometer;                // vStream Accelerometer
+extern vStreamDriver_t      Driver_vStreamAudioIn;                      // vStream Audio In
 
 #ifdef   CMSIS_shield_header
 #include CMSIS_shield_header

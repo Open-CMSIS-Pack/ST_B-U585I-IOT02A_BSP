@@ -7,7 +7,7 @@
 
 // <n> Auto-generated using information from packs
 // <i> Device Family Pack (DFP):   Keil::STM32U5xx_DFP@3.0.0
-// <i> Board Support Pack (BSP):   Keil::B-U585I-IOT02A_BSP@2.1.0
+// <i> Board Support Pack (BSP):   Keil::B-U585I-IOT02A_BSP@3.0.0
 
 // <h> ROM Configuration
 // =======================
