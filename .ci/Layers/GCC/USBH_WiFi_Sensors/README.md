@@ -1,6 +1,6 @@
 # Board: STMicroelectronics [B-U585I-IOT02A](https://www.st.com/en/evaluation-tools/b-u585i-iot02a.html)
 
-## Board Layer supporting USB Host, Audio In, WiFi, Accelerometer Sensor
+## Board Layer supporting USB Host, Audio In, WiFi, Accelerometer Sensor (GCC)
 
 Device: **STM32U585AII6QU**
 
