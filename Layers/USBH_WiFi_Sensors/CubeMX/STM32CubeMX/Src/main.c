@@ -76,14 +76,12 @@ UART_HandleTypeDef huart4;
 UART_HandleTypeDef huart1;
 UART_HandleTypeDef huart2;
 UART_HandleTypeDef huart3;
-DMA_HandleTypeDef handle_GPDMA1_Channel7;
-DMA_HandleTypeDef handle_GPDMA1_Channel6;
+DMA_HandleTypeDef handle_GPDMA1_Channel9;
+DMA_HandleTypeDef handle_GPDMA1_Channel8;
 
 HCD_HandleTypeDef hhcd_USB_OTG_FS;
 
 /* USER CODE BEGIN PV */
-
-ISM330DHCX_Object_t ISM330DHCX_Obj;
 
 /* USER CODE END PV */
 
@@ -156,46 +154,6 @@ int32_t USBH_HW_VbusOnOff (HCD_HandleTypeDef *ptr_hhcd, bool vbus) {
   }
 
   return 0;
-}
-
-/* BSP Sensors Init */
-static void BSP_SENSOR_Init (void) {
-  ISM330DHCX_IO_t IOCtx;
-
-  BSP_ENV_SENSOR_Init      (0U, ENV_TEMPERATURE);
-  BSP_ENV_SENSOR_Init      (0U, ENV_HUMIDITY);
-  BSP_ENV_SENSOR_Init      (1U, ENV_PRESSURE);
-  BSP_MOTION_SENSOR_Init   (0U, MOTION_ACCELERO);
-  BSP_MOTION_SENSOR_Init   (0U, MOTION_GYRO);
-  BSP_MOTION_SENSOR_Init   (1U, MOTION_MAGNETO);
-
-  BSP_ENV_SENSOR_Disable   (0U, ENV_TEMPERATURE);
-  BSP_ENV_SENSOR_Disable   (0U, ENV_HUMIDITY);
-  BSP_ENV_SENSOR_Disable   (1U, ENV_PRESSURE);
-  BSP_MOTION_SENSOR_Disable(0U, MOTION_ACCELERO);
-  BSP_MOTION_SENSOR_Disable(0U, MOTION_GYRO);
-  BSP_MOTION_SENSOR_Disable(1U, MOTION_MAGNETO);
-
-  IOCtx.BusType  = ISM330DHCX_I2C_BUS;
-  IOCtx.Address  = ISM330DHCX_I2C_ADD_H;
-  IOCtx.Init     = BSP_I2C2_Init;
-  IOCtx.DeInit   = BSP_I2C2_DeInit;
-  IOCtx.ReadReg  = BSP_I2C2_ReadReg;
-  IOCtx.WriteReg = BSP_I2C2_WriteReg;
-  IOCtx.GetTick  = BSP_GetTick;
-
-  ISM330DHCX_RegisterBusIO         (&ISM330DHCX_Obj, &IOCtx);
-  ISM330DHCX_Init                  (&ISM330DHCX_Obj);
-
-  ISM330DHCX_ACC_SetFullScale      (&ISM330DHCX_Obj, ISM330DHCX_2g);
-  ISM330DHCX_ACC_SetOutputDataRate (&ISM330DHCX_Obj, 1666.0f);
-  ISM330DHCX_FIFO_ACC_Set_BDR      (&ISM330DHCX_Obj, 1666.0f);
-
-  ISM330DHCX_GYRO_SetFullScale     (&ISM330DHCX_Obj, ISM330DHCX_2000dps);
-  ISM330DHCX_GYRO_SetOutputDataRate(&ISM330DHCX_Obj, 1666.0f);
-  ISM330DHCX_FIFO_GYRO_Set_BDR     (&ISM330DHCX_Obj, 1666.0f);
-
-  ISM330DHCX_FIFO_Set_Mode         (&ISM330DHCX_Obj, ISM330DHCX_STREAM_MODE);
 }
 
 /* Configure SRAMs to allow non-secure/unprivileged accesses.
@@ -280,7 +238,6 @@ int main(void)
   MX_SPI2_Init();
   MX_UART4_Init();
   MX_USART1_UART_Init();
-  MX_ADF1_Init();
   MX_USB_OTG_FS_HCD_Init();
   MX_SPI1_Init();
   MX_USART2_UART_Init();
@@ -291,8 +248,6 @@ int main(void)
   MX_ADC4_Init();
   MX_ICACHE_Init();
   /* USER CODE BEGIN 2 */
-
-  BSP_SENSOR_Init();                    /* Initialize on-board environment and motion sensors */
 
   /* Enable VBUS driving on USB Type-C Port */
   BSP_USBPD_PWR_Init        (USBPD_PWR_TYPE_C_PORT_1);
@@ -539,10 +494,10 @@ static void MX_GPDMA1_Init(void)
     HAL_NVIC_EnableIRQ(GPDMA1_Channel4_IRQn);
     HAL_NVIC_SetPriority(GPDMA1_Channel5_IRQn, 8, 0);
     HAL_NVIC_EnableIRQ(GPDMA1_Channel5_IRQn);
-    HAL_NVIC_SetPriority(GPDMA1_Channel6_IRQn, 8, 0);
-    HAL_NVIC_EnableIRQ(GPDMA1_Channel6_IRQn);
-    HAL_NVIC_SetPriority(GPDMA1_Channel7_IRQn, 8, 0);
-    HAL_NVIC_EnableIRQ(GPDMA1_Channel7_IRQn);
+    HAL_NVIC_SetPriority(GPDMA1_Channel8_IRQn, 8, 0);
+    HAL_NVIC_EnableIRQ(GPDMA1_Channel8_IRQn);
+    HAL_NVIC_SetPriority(GPDMA1_Channel9_IRQn, 8, 0);
+    HAL_NVIC_EnableIRQ(GPDMA1_Channel9_IRQn);
 
   /* USER CODE BEGIN GPDMA1_Init 1 */
 
@@ -1185,8 +1140,8 @@ static void MX_USB_OTG_FS_HCD_Init(void)
 static void MX_GPIO_Init(void)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
-/* USER CODE BEGIN MX_GPIO_Init_1 */
-/* USER CODE END MX_GPIO_Init_1 */
+  /* USER CODE BEGIN MX_GPIO_Init_1 */
+  /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOG_CLK_ENABLE();
@@ -1332,7 +1287,7 @@ static void MX_GPIO_Init(void)
   HAL_NVIC_SetPriority(EXTI15_IRQn, 8, 0);
   HAL_NVIC_EnableIRQ(EXTI15_IRQn);
 
-/* USER CODE BEGIN MX_GPIO_Init_2 */
+  /* USER CODE BEGIN MX_GPIO_Init_2 */
 
   // Configure MXCHIP_NOTIFY pin (PD14) to generate event on the rising edge
   Driver_GPIO0.Setup          (GPIO_PIN_ID_PORTD(14), GPIO_SignalEvent);
@@ -1350,7 +1305,7 @@ static void MX_GPIO_Init(void)
   Driver_GPIO0.SetDirection   (GPIO_PIN_ID_PORTE(8) , ARM_GPIO_INPUT);
   Driver_GPIO0.SetEventTrigger(GPIO_PIN_ID_PORTE(8) , ARM_GPIO_TRIGGER_FALLING_EDGE);
 
-/* USER CODE END MX_GPIO_Init_2 */
+  /* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */
@@ -1370,7 +1325,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   /* USER CODE BEGIN Callback 0 */
 
   /* USER CODE END Callback 0 */
-  if (htim->Instance == TIM17) {
+  if (htim->Instance == TIM17)
+  {
     HAL_IncTick();
   }
   /* USER CODE BEGIN Callback 1 */

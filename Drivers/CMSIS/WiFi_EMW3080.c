@@ -1,5 +1,5 @@
 /* -----------------------------------------------------------------------------
- * Copyright (c) 2022-2024 Arm Limited (or its affiliates). All rights reserved.
+ * Copyright (c) 2022-2025 Arm Limited (or its affiliates). All rights reserved.
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -16,8 +16,8 @@
  * limitations under the License.
  *
  *
- * $Date:               6. December 2024
- * $Revision:           V1.1
+ * $Date:               18. July 2025
+ * $Revision:           V2.0
  *
  * Driver:              Driver_WiFin (n = WIFI_EMW3080_DRV_NUM value)
  * Project:             WiFi Driver for MXCHIP EMW3080 WiFi Module (SPI variant)
@@ -28,6 +28,8 @@
  * -------------------------------------------------------------------------- */
 
 /* History:
+ *  Version 2.0
+ *    - Changed mx_wifi component driver and configuration file location
  *  Version 1.1
  *    - Updated to work with EMW3080B MXCHIP WiFi module firmware v2.3.4 (rc 13)
  *  Version 1.0
@@ -102,7 +104,7 @@ void WiFi_EMW3080_Pin_FLOW_Rising_Edge (void) {
 
 // WiFi Driver *****************************************************************
 
-#define ARM_WIFI_DRV_VERSION ARM_DRIVER_VERSION_MAJOR_MINOR(1,1)         // Driver version
+#define ARM_WIFI_DRV_VERSION ARM_DRIVER_VERSION_MAJOR_MINOR(2,0)         // Driver version
 
 // Driver Version
 static const ARM_DRIVER_VERSION driver_version = { ARM_WIFI_API_VERSION, ARM_WIFI_DRV_VERSION };

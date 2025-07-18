@@ -175,7 +175,7 @@ MX_WIFI Component Driver configuration.
  - **MXCHIP_SPI** specifies the SPI peripheral handle. On this board SPI2 is used, so this setting should be set to **hspi2**.  
    If different SPI peripheral is used this setting should be changed accordingly.
  - **DMA_ON_USE** specifies DMA usage for the SPI transfers. If DMA is used set this setting to 1, otherwise set it to 0.  
-   By **default** this setting is set to **0** to enable SPI to work on devices with TrustZone enabled and SAU disabled.
+   By **default** this setting is set to **1** thus DMA usage is enabled.
  - **MX_WIFI_USE_CMSIS_OS** specifies usage of the CMSIS RTOS2. This setting must be set to **1**.
  - **MX_WIFI_NETWORK_BYPASS_MODE** enables or disables bypass mode. Set it to 1 to enable bypass mode, otherwise set it to 0.  
    By **default** this setting is set to **0** thus bypass mode is disabled.
