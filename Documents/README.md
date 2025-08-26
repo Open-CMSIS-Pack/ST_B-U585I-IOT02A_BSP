@@ -40,30 +40,34 @@ well as a USB Virtual COM port bridge.
    as `NOD_U585AI` for TrustZone enabled device.
 6. After file is copied to the **MBED microcontroller USB Device** the chip will restart and there will be some text message
    in the **Serial Terminal** similar to below:
-   ```
-   ################### Welcome to EMW3080 firmware update utility 1.1.0 for board RevB or RevC ###################
-   
-   STM32> Configured for MXCHIP embedded FW ST-EMW3080B_V2.3.4_SPI.OTA.BIN 0x8000234 / 686672 bytes
-   STM32> Push the user button (Blue) to program the EMW3080 device or enter command
-   STM32> MCU system clock 160 MHz, Uart Baud rate 921600, Software emulated UART bit duration 173 cycles
-   
-   
-   "      help"            print this message
-   "      boot"            boot EMW3080 (needed before using mx command) 
-   "        mx"            mx [cmd]: send command to mxchip device (cmd which requires ymodem protocol can't be used)
-   "     flash"            flash mxchip firmware (same as pushing the blue button)
-   "     check"            check mxchip firmware
-   .[12hSTM32>
-   ```
+
+```
+  ################### Welcome to EMW3080 firmware update utility 1.1.0 for board RevB or RevC ###################
+  
+  STM32> Configured for MXCHIP embedded FW ST-EMW3080B_V2.3.4_SPI.OTA.BIN 0x8000234 / 686672 bytes
+  STM32> Push the user button (Blue) to program the EMW3080 device or enter command
+  STM32> MCU system clock 160 MHz, Uart Baud rate 921600, Software emulated UART bit duration 173 cycles
+  
+  
+  "      help"            print this message
+  "      boot"            boot EMW3080 (needed before using mx command) 
+  "        mx"            mx [cmd]: send command to mxchip device (cmd which requires ymodem protocol can't be used)
+  "     flash"            flash mxchip firmware (same as pushing the blue button)
+  "     check"            check mxchip firmware
+  .[12hSTM32>
+```
+
 7. Type `flash` and press Enter, now wait for process to finish, the text in the **Serial Terminal** should look similar to below:
-   ```
-   STM32> 
-   STM32> Boot done successfully
-   STM32> Waiting for the EMW3080 to be ready for programming (a few seconds pass before receiving a message)
-   Transfering packets ...
-   CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
-   STM32> Programming successful, reset the device to get back to prompt
-   ```
+
+```
+  STM32> 
+  STM32> Boot done successfully
+  STM32> Waiting for the EMW3080 to be ready for programming (a few seconds pass before receiving a message)
+  Transfering packets ...
+  CCCCCCCCCCC ... CCCCCCC
+  STM32> Programming successful, reset the device to get back to prompt
+```
+
 8. **Power-off** and **power-on** the board which now has updated MXCHIP EMW3080B firmware.
 
 ## Technical reference
