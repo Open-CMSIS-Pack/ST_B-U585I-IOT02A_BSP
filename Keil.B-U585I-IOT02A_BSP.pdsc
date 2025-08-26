@@ -145,7 +145,7 @@
           <file category="source"  name="Drivers/BSP/B-U585I-IOT02A/b_u585i_iot02a_ranging_sensor.c"/>
           <file category="header"  name="Drivers/BSP/B-U585I-IOT02A/b_u585i_iot02a_usbpd_pwr.h"/>
           <file category="source"  name="Drivers/BSP/B-U585I-IOT02A/b_u585i_iot02a_usbpd_pwr.c"/>
-      
+
           <!-- Component Drivers -->
           <file category="include" name="Drivers/BSP/Components/Common/"/>
           <file category="header"  name="Drivers/BSP/Components/aps6408/Config/aps6408_conf.h" attr="config" version="2.0.0"/>
