@@ -20,10 +20,13 @@
       - Added vStream Accelerometer driver
       - Added vStream Audio In driver
       - Updated WiFi driver (changed mx_wifi component driver and configuration file location)
+      Example projects:
+      - CMSIS-RTOS2 Blinky:
+      -- Updated to STM32CubeMX v6.15.0 and STM32CubeU5 Firmware Package v1.8.0
       Layers:
-      - Updated all layers to STM32CubeMX v6.15.0 and STM32CubeU5 Firmware Package version V1.8.0
+      - Updated all layers to STM32CubeMX v6.15.0 and STM32CubeU5 Firmware Package v1.8.0
       STMicroelectronics BSP/Component Drivers:
-      - Updated all drivers to STM32CubeU5 Firmware Package version V1.8.0
+      - Updated all drivers to STM32CubeU5 Firmware Package v1.8.0
     </release>
     <release version="1.1.0" date="2024-04-10">
       Synchronized with STM32CubeU5 Firmware Package version V1.2.0
