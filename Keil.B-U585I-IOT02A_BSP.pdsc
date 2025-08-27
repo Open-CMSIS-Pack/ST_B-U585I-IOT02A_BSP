@@ -83,7 +83,8 @@
     <!-- Board Condition -->
     <condition id="B-U585I-IOT02A">
       <description>STMicroelectronics B-U585I-IOT02A Board</description>
-      <require Bvendor="STMicroelectronics" Bname="B-U585I-IOT02A"/>
+      <require Dvendor="STMicroelectronics:13" Dname="STM32U585AIIx"/>
+      <require Bvendor="STMicroelectronics"    Bname="B-U585I-IOT02A"/>
     </condition>
 
     <!-- Board Condition + CMSIS Driver GPIO -->
