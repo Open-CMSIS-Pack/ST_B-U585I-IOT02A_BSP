@@ -20,55 +20,55 @@ well as a USB Virtual COM port bridge.
 
 ### ST-LINK driver installation and firmware upgrade (on Microsoft Windows)
 
-1. Download the latest [ST-LINK driver](https://www.st.com/en/development-tools/stsw-link009.html).
-2. Extract the archive and run `dpinst_amd64.exe`. Follow the displayed instructions.
-3. Download the latest [ST-LINK firmware upgrade](https://www.st.com/en/development-tools/stsw-link007.html).
-4. Extract the archive and run the `ST-LinkUpgrade.exe` program.
-5. Connect the board to your PC using a USB cable and wait until the USB enumeration is completed.
-6. In the **ST-Link Upgrade** program, press the **Device Connect** button.
-7. When the ST-LINK driver is correctly installed, the current ST-LINK version is displayed.
-8. Press the **Yes >>>>** button to start the firmware upgrade process.
+- Download the latest [ST-LINK driver](https://www.st.com/en/development-tools/stsw-link009.html).
+- Extract the archive and run `dpinst_amd64.exe`. Follow the displayed instructions.
+- Download the latest [ST-LINK firmware upgrade](https://www.st.com/en/development-tools/stsw-link007.html).
+- Extract the archive and run the `ST-LinkUpgrade.exe` program.
+- Connect the board to your PC using a USB cable and wait until the USB enumeration is completed.
+- In the **ST-Link Upgrade** program, press the **Device Connect** button.
+- When the ST-LINK driver is correctly installed, the current ST-LINK version is displayed.
+- Press the **Yes >>>>** button to start the firmware upgrade process.
 
 ### WiFi firmware update for MXCHIP EMW3080B (on Microsoft Windows)
 
-1. Connect the board to your PC using a USB cable and wait until the USB enumeration is completed.
-2. Start the **Serial Terminal** application and connect to the **STMicroelectronics STLink Virtual COM Port (COMx)** (115200-8-N-1).
-3. Download the latest [MXCHIP EMW3080B firmware](https://www.st.com/en/development-tools/x-wifi-emw3080b.html).
-4. Extract the archive.
-5. Drag and drop the `EMW3080update_B-U585I-IOT02A-RevC_V2.3.4_SPI.bin` file, located in the `./V2.3.4/SPI` subfolder, to
-   the **MBED microcontroller USB Device** that shows up in the File Explorer as `DIS_U585AI` for TrustZone disabled device or
-   as `NOD_U585AI` for TrustZone enabled device.
-6. After file is copied to the **MBED microcontroller USB Device** the chip will restart and there will be some text message
-   in the **Serial Terminal** similar to below:
+- Connect the board to your PC using a USB cable and wait until the USB enumeration is completed.
+- Start the **Serial Terminal** application and connect to the **STMicroelectronics STLink Virtual COM Port (COMx)** (115200-8-N-1).
+- Download the latest [MXCHIP EMW3080B firmware](https://www.st.com/en/development-tools/x-wifi-emw3080b.html).
+- Extract the archive.
+- Drag and drop the `EMW3080update_B-U585I-IOT02A-RevC_V2.3.4_SPI.bin` file, located in the `./V2.3.4/SPI` subfolder, to
+  the **MBED microcontroller USB Device** that shows up in the File Explorer as `DIS_U585AI` for TrustZone disabled device or
+  as `NOD_U585AI` for TrustZone enabled device.
+- After file is copied to the **MBED microcontroller USB Device** the chip will restart and there will be some text message
+  in the **Serial Terminal** similar to below:
 
 ```
-  ################### Welcome to EMW3080 firmware update utility 1.1.0 for board RevB or RevC ###################
-  
-  STM32> Configured for MXCHIP embedded FW ST-EMW3080B_V2.3.4_SPI.OTA.BIN 0x8000234 / 686672 bytes
-  STM32> Push the user button (Blue) to program the EMW3080 device or enter command
-  STM32> MCU system clock 160 MHz, Uart Baud rate 921600, Software emulated UART bit duration 173 cycles
-  
-  
-  "      help"            print this message
-  "      boot"            boot EMW3080 (needed before using mx command) 
-  "        mx"            mx [cmd]: send command to mxchip device (cmd which requires ymodem protocol can't be used)
-  "     flash"            flash mxchip firmware (same as pushing the blue button)
-  "     check"            check mxchip firmware
-  .[12hSTM32>
+    ################### Welcome to EMW3080 firmware update utility 1.1.0 for board RevB or RevC ###################
+    
+    STM32> Configured for MXCHIP embedded FW ST-EMW3080B_V2.3.4_SPI.OTA.BIN 0x8000234 / 686672 bytes
+    STM32> Push the user button (Blue) to program the EMW3080 device or enter command
+    STM32> MCU system clock 160 MHz, Uart Baud rate 921600, Software emulated UART bit duration 173 cycles
+    
+    
+    "      help"            print this message
+    "      boot"            boot EMW3080 (needed before using mx command) 
+    "        mx"            mx [cmd]: send command to mxchip device (cmd which requires ymodem protocol can't be used)
+    "     flash"            flash mxchip firmware (same as pushing the blue button)
+    "     check"            check mxchip firmware
+    .[12hSTM32>
 ```
 
-7. Type `flash` and press Enter, now wait for process to finish, the text in the **Serial Terminal** should look similar to below:
+- Type `flash` and press Enter, now wait for process to finish, the text in the **Serial Terminal** should look similar to below:
 
 ```
-  STM32> 
-  STM32> Boot done successfully
-  STM32> Waiting for the EMW3080 to be ready for programming (a few seconds pass before receiving a message)
-  Transfering packets ...
-  CCCCCCCCCCC ... CCCCCCC
-  STM32> Programming successful, reset the device to get back to prompt
+    STM32> 
+    STM32> Boot done successfully
+    STM32> Waiting for the EMW3080 to be ready for programming (a few seconds pass before receiving a message)
+    Transfering packets ...
+    CCCCCCCCCCC ... CCCCCCC
+    STM32> Programming successful, reset the device to get back to prompt
 ```
 
-8. **Power-off** and **power-on** the board which now has updated MXCHIP EMW3080B firmware.
+- **Power-off** and **power-on** the board which now has updated MXCHIP EMW3080B firmware.
 
 ## Technical reference
 
