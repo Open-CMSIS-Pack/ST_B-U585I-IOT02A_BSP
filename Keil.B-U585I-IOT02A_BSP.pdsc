@@ -16,6 +16,10 @@
   <releases>
     <release version="3.0.1-dev">
       Active development ...
+      Blinky projects:
+      - Updated memory regions file
+      Layers:
+      - Updated memory regions files
     </release>
     <release version="1.1.0" date="2024-04-10">
       Synchronized with STM32CubeU5 Firmware Package version V1.2.0
